@@ -3,9 +3,10 @@ import App from './src/app.vue';
 import router from './src/router';
 import api from '@/api/request';
 
-import { Button, Tree, Table, message, Modal, FormModel, Divider, Input } from 'ant-design-vue';
+import { Icon, Button, Tree, Table, message, Modal, FormModel, Divider, Input } from 'ant-design-vue';
 
 import 'ant-design-vue/dist/antd.css';
+import '@/styles/style.css';
 
 Vue.use(Tree);
 Vue.use(Button);
@@ -14,6 +15,7 @@ Vue.use(Modal);
 Vue.use(FormModel);
 Vue.use(Divider);
 Vue.use(Input);
+Vue.use(Icon);
 
 message.config({
   top: `100px`,

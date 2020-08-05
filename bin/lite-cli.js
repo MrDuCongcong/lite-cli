@@ -2,7 +2,7 @@
 
 const { program } = require("commander");
 const { createServer } = require('../server');
-const { runDevServer } = require('../scripts/start');
+const { runDevServer } = require('../scripts/devServer');
 const path = require('path');
 
 program

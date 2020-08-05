@@ -1,16 +1,17 @@
 <template>
     <div class="project">
-        <div class="project-opea">
+        <div class="project-add">
            <a-button type="primary" @click="showModal">新增项目</a-button>
         </div>
         <a-table :columns="columns" :data-source="projectList">
             <span slot="projectName" slot-scope="text">{{ text }}</span>
             <span slot="action" slot-scope="text, record">
-                <a @click="edit(record)">编辑</a>
+                <a class="opea-icon" @click="edit(record)">编辑</a>
                 <a-divider  type="vertical"/>
-                <a @click="deleteProject(record)">删除</a>
-                  <a-divider  type="vertical"/>
-                <a @click="buildProject(record)">打包</a>              
+                <a class="opea-icon" @click="deleteProject(record)">删除</a>
+                <a-divider  type="vertical"/>
+                <a class="opea-icon" @click="buildProject(record)">打包</a>
+                <!-- <a-icon class="opea-icon" type="setting" @click="buildProject(record)"/> -->
             </span>
         </a-table>
         
@@ -36,14 +37,20 @@
                 </a-form-model-item>
             </a-form-model>
         </a-modal>
+
+        <build ref="buildRef"></build>
     </div>    
 </template>
 
 <script>
+import build from './build.vue';
 import axios from 'axios';
 
 export default {
     name: 'project',
+    components: {
+        build,
+    },
     data() {
         let checkProjectId = (rule, value, callback) => {
             
@@ -68,6 +75,7 @@ export default {
                 {
                     title: '操作',
                     key: 'action',
+                    width: 200,
                     scopedSlots: { customRender: 'action' }
                 }
             ],
@@ -109,9 +117,7 @@ export default {
             this.$refs.formRef.resetFields();
         },
         edit(project) {
-            this.$router.push({ name: 'build', query: { 
-                projectId: project.projectId,
-            }});
+            this.$refs.buildRef.showDialog(project.projectId);
         },
         delete(project) {
             this.$confirm({
@@ -172,7 +178,7 @@ export default {
 <style lang="scss" scoped>
 .project{
     padding: 0 20px;
-    .project-opea {
+    .project-add {
         padding: 16px 0px;
         text-align: right;
     }

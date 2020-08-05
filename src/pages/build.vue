@@ -1,6 +1,26 @@
 <template>
     <div class="build">
-        <a-button type="primary" @click="goBack" >返回</a-button>
+        <a-modal
+            title="模块选择"
+            cancelText="取消"
+            okText="确定"
+            :visible="buildDialogVisible"
+            @ok="handleOk"
+            @cancel="handleCancel"
+        >
+           <div class="build-content">
+                <a-tree
+                    v-model="selectedModule"
+                    checkable
+                    :replace-fields="replaceFields"
+                    :default-expand-all="true"
+                    :tree-data="projectList"
+                    @check="handleCheck"
+                />
+            </div>
+        </a-modal>
+
+        <!-- <a-button type="primary" @click="goBack" >返回</a-button>
         <div class="build-header">打包图表选择</div>
         <a-tree
             v-model="selectedModule"
@@ -12,7 +32,7 @@
         />
         <div class="build-footer">
             <a-button class="footer-button" @click="handleMoudleChange" type="primary">确定</a-button>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -21,8 +41,10 @@ export default {
     name: 'build',
     data() {
         return {
-            selectedModule: [],
-            projectId: '',
+            buildDialogVisible: false,
+
+            selectedModule: [],  // 已选择的模块
+            projectId: '',       // 当前编辑的工程id
             projectList: [],
             replaceFields: {
                 children: 'children',
@@ -34,10 +56,19 @@ export default {
     computed: {
     },
     mounted() {
-        this.projectId = this.$route.query.projectId;
-        this.getModuleList()
     },
     methods: {
+        handleOk() {
+            this.handleMoudleChange();
+        },
+        handleCancel() {
+            this.buildDialogVisible = false;
+        },
+        showDialog(projectId) {
+            this.projectId = projectId;
+            this.buildDialogVisible = true;
+            this.getModuleList()
+        },
         goBack() {
             this.$router.back();
         },
@@ -71,8 +102,8 @@ export default {
             }).then((res) => {
                 const data = res.data;
                 if (data.state === 200) {
+                    this.buildDialogVisible = false;
                     this.$message.success('项目模块修改成功');
-                    this.$router.back();
                 }
             }).catch((err) => {
                 this.$message.error(err);
@@ -91,4 +122,14 @@ export default {
         text-align: right;
     }
 }
+.ant-modal-header {
+    border: none!important;
+}
+
+    .build-content {
+        height: 400px;
+        overflow: scroll;
+        border: 1px solid #e8e8e8;
+        border-radius: 4px;
+    }
 </style>
