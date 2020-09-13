@@ -1,0 +1,6 @@
+
+> scene-lite@0.1.0 dev E:\worker\client\insight-bi
+> vue-cli-service serve
+
+ INFO  Starting development server...
+子进程退出，退出码 null子进程退出，退出码 null

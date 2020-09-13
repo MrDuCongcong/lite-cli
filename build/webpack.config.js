@@ -10,10 +10,11 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].js',
     },
     devtool: 'inline-source-map',
     devServer: {},
+    mode: 'development',
     resolve: {
         alias: {
             '@': path.join(__dirname, '../src'),
@@ -27,12 +28,8 @@ module.exports = {
             },
             {
                 test: /\.scss|.css$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader',
-                    'sass-loader',
-                ]
-            }
+                use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+            },
         ],
     },
     plugins: [
@@ -42,5 +39,5 @@ module.exports = {
         }),
         new VueLoaderPlugin(),
         new Webpack.HotModuleReplacementPlugin(),
-     ],
+    ],
 };

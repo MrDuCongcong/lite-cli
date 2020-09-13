@@ -1,0 +1,11 @@
+[
+    {
+        "projectName": " insight-bi",
+        "projectId": "c09c80a7-1064-46f3-8af8-61be1b399a5f",
+        "description": "",
+        "path": "E:\\worker\\client",
+        "cmdSet": "cd insight-bi\nnpm run dev",
+        "moduleChoice": false,
+        "createDate": "2020-09-12 17:09:29"
+    }
+]
