@@ -12,16 +12,17 @@ const { runShell, runList, runLog } = require('../scripts/runShell');
 
 const basePath = 'data';
 const workPath = process.cwd(); // node.js进程当前工作目录
-const projectDir = 'projects';
 
 // 项目目录配置文件
 const projectConfigPath = path.resolve(__dirname, `../${basePath}/project.config.json`);
 // 模块目录配置文件
 const moduleConfigPath = path.resolve(__dirname, `../${basePath}/module.config.json`);
 // 保存项目拥有模块的文件的目录
-const moduleBaseDir = path.resolve(__dirname, `../${basePath}/${projectDir}`);
+const moduleBaseDir = path.resolve(__dirname, `../${basePath}/projects`);
 // 报错项目临时执行脚本的文件的目录
 const templogDir = path.resolve(__dirname, `../${basePath}/log`);
+// 命令行目录
+const cmdDir = path.resolve(__dirname, `../${basePath}/bat`)
 
 const responseData = {
     state: '',
@@ -113,7 +114,7 @@ function createServer() {
         const projectId = req.param('projectId');
         let responseData = {};
         try {
-            const data = operateConfig.deleteProjectById(projectId, projectConfigPath, templogDir, moduleBaseDir);
+            const data = operateConfig.deleteProjectById(projectId, projectConfigPath, templogDir, moduleBaseDir, cmdDir);
             responseData = {
                 state: 200,
                 data: data,
@@ -142,12 +143,14 @@ function createServer() {
 
         try {
             const project = operateConfig.getProjectById(projectId, projectConfigPath);
-            runShell(project, templogDir);
-            responseData = {
-                state: 200,
-                data: '',
-                message: '',
-            };
+            const state = runShell(project, templogDir, cmdDir);
+            if (state) {
+                responseData.state = 200;
+            } else {
+                responseData.state = 300;
+                responseData.message = '该项目已经在运行中';
+            }
+            
         } catch {
             responseData = {
                 state: 500,

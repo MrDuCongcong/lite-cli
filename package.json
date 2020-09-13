@@ -28,6 +28,7 @@
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
     "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.5.1",
     "win-select-folder": "^1.0.1"
   },
   "devDependencies": {

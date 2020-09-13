@@ -1,10 +1,10 @@
 const spawn = require('cross-spawn');
-const { execFile, exec } = require('child_process');
+const { execFile, exec, execSync } = require('child_process');
 const execa = require('execa');
 
 const path = require('path');
 
-pathc = path.resolve(__dirname, '..');
+pathc = path.resolve(__dirname, 'a.bat');
 
 // const pid = spawn('npm', ['run', 'start'], { cwd: pathc });
 // const pid = spawn('cd', ['/d', 'E:\\worker\\client\\insight-bi'], { cwd: pathc });
@@ -12,7 +12,7 @@ pathc = path.resolve(__dirname, '..');
 
 console.log(execa);
 
-const pid = exec('cd /d E:\\worker\\client\\insight-main & npm run dev');
+const pid = execFile(pathc, [], { maxBuffer: 5000 * 1024 });
 
 pid.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);

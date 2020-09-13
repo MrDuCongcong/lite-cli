@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './src/app.vue';
 import router from './src/router';
+import store from './src/store';
 import api from '@/api/request';
 
 import { Icon, Button, Tree, Table, message, Modal, FormModel, Divider, Input, Checkbox, Tabs, Drawer } from 'ant-design-vue';
@@ -34,6 +35,7 @@ Vue.prototype.$confirm = Modal.confirm;
 
 new Vue({
     router,
+    store,
     render: (h) => h(App),
 }).$mount('#app');
 

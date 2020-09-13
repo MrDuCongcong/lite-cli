@@ -1,25 +1,15 @@
 <template>
-    <div class="tabs">
-        <a-drawer :destroyOnClose="true"
-                  height="300"
-                  :closable="true"
-                  :mask="false"
-                  :maskClosable="false"
-                  :visible="visible"
-                  :placement="placement"
-                  @close="onClose">
-            <a-tabs>
-                <a-tab-pane v-for="(runPrj, index) in runList"
-                            :key="index"
-                            :tab="runPrj.projectName">
-                    <div class="tabs-content">
-
-                    </div>
+<div class="tabs">
+    <a-drawer :destroyOnClose="true" height="300" :closable="true" :mask="false" :maskClosable="false" :visible="visible" :placement="placement" @close="onClose">
+        <a-tabs>
+            <a-tab-pane v-for="(runPrj, index) in runList" :key="index" :tab="runPrj.projectName" @change="handleTabChange(runPrj)">
+                <div class="tabs-content">
                     <pre>{{runPrj.runLog}}</pre>
-                </a-tab-pane>
-            </a-tabs>
-        </a-drawer>
-    </div>
+                </div>
+            </a-tab-pane>
+        </a-tabs>
+    </a-drawer>
+</div>
 </template>
 
 <script>
@@ -28,48 +18,59 @@ export default {
         return {
             placement: 'bottom',
             visible: false,
-
-            // 当前运行的项目列表
-            runList: [],
+            timer: '', // 定时请求日志
         };
+    },
+    computed: {
+        runList() {
+            return this.$store.getters.runList;
+        }
     },
     methods: {
         showDrawer(projectId) {
-            this.$api
-                .get('/runProjectList')
-                .then((res) => {
-                    if (res.data.length > 0) {
-                        this.runList = res.data;
+            this.$store.dispatch('getRunList')
+                .then((data) => {
+                    console.log(data);
+                    if (data.length > 0) {
                         this.visible = true;
-                        this.getRunLogByProjectiD(res.data[0]);
+                        this.getRunLogByProjectiD(projectId);
                     } else {
                         this.$message.error('当前无项目运行');
                     }
-                })
-                .catch((err) => {
+                }).catch((err) => {
                     this.$message.error(err);
                 });
         },
-        getRunLogByProjectiD(project) {
+        /**
+         * 根据项目Id获取运行日志
+         * @param {projectId} 项目Id
+         */
+        getRunLogByProjectiD(projectId) {
             this.$api
                 .get('/runLog', {
                     params: {
-                        projectId: project.projectId,
+                        projectId: projectId,
                     },
                 })
                 .then((res) => {
-                    const findItem = this.runList.find((item) => {
-                        return (item.projectId = project.projectId);
+                    this.$store.dispatch('setRunLog', {
+                        projectId,
+                        runLog: res.data,
                     });
-                    findItem.runLog = res.data;
-
-                    console.log(this.runList);
+                    this.timer = setTimeout(this.getRunLogByProjectiD(projectId), 800);
                 })
                 .catch((err) => {});
         },
         onClose() {
             this.visible = false;
+            clearTimeout(this.timer);
+            this.timer = '';
         },
+        handleTabChange(project) {
+            clearTimeout(this.timer);
+            this.timer = '';
+            this.getRunLogByProjectiD(project.projectId);
+        }
     },
 };
 </script>

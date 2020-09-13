@@ -1,46 +1,32 @@
 <template>
-    <div class="project">
-        <div class="project-add">
-            <a-button type="primary"
-                      @click="showProjectModal">新增项目</a-button>
-            <a-button @click="showConDrawer">控制台</a-button>
-        </div>
-        <a-table :row-selection="rowSelection"
-                 :columns="columns"
-                 :data-source="projectList">
-            <span slot="projectName"
-                  slot-scope="text">{{ text }}</span>
-            <span slot="createDate"
-                  slot-scope="text">{{ text }}</span>
-            <span slot="description"
-                  slot-scope="text">{{ text }}</span>
-            <span slot="action"
-                  slot-scope="text, record">
-                <a-icon type="loading" />
-                <a class="opea-icon"
-                   @click="runProject(record)">运行</a>
-                <!-- <a class="opea-icon" @click="buildProject(record)">打包</a> -->
-                <a-divider type="vertical" />
-                <a class="opea-icon"
-                   @click="editProject(record)">编辑</a>
-                <a-divider type="vertical" />
-                <a class="opea-icon"
-                   @click="deleteOpea(record)">删除</a>
-                <a-divider type="vertical"
-                           v-if="record.moduleChoice" />
-                <a class="opea-icon"
-                   v-if="record.moduleChoice"
-                   @click="editModuleTree(record)">模块</a>
-
-                <!-- <a-icon class="opea-icon" type="setting" @click="buildProject(record)"/> -->
-            </span>
-        </a-table>
-
-        <build ref="buildRef"></build>
-        <project-modal ref="pjtRef"
-                       @handleOk="addProject"></project-modal>
-        <console ref="conRef"></console>
+<div class="project">
+    <div class="project-add">
+        <a-button type="primary" @click="showProjectModal">新增项目</a-button>
+        <a-button @click="showConDrawer">控制台</a-button>
     </div>
+    <a-table :row-selection="rowSelection" :columns="columns" :data-source="projectList">
+        <span slot="projectName" slot-scope="text">{{ text }}</span>
+        <span slot="createDate" slot-scope="text">{{ text }}</span>
+        <span slot="description" slot-scope="text">{{ text }}</span>
+        <span slot="action" slot-scope="text, record">
+            <a-icon v-if="isRun(record)" type="loading" />
+            <a class="opea-icon" @click="runProject(record)">运行</a>
+            <!-- <a class="opea-icon" @click="buildProject(record)">打包</a> -->
+            <a-divider type="vertical" />
+            <a class="opea-icon" @click="editProject(record)">编辑</a>
+            <a-divider type="vertical" />
+            <a class="opea-icon" @click="deleteOpea(record)">删除</a>
+            <a-divider type="vertical" v-if="record.moduleChoice" />
+            <a class="opea-icon" v-if="record.moduleChoice" @click="editModuleTree(record)">模块</a>
+
+            <!-- <a-icon class="opea-icon" type="setting" @click="buildProject(record)"/> -->
+        </span>
+    </a-table>
+
+    <build ref="buildRef"></build>
+    <project-modal ref="pjtRef" @handleOk="addProject"></project-modal>
+    <console ref="conRef"></console>
+</div>
 </template>
 
 <script>
@@ -55,10 +41,17 @@ export default {
         projectModal,
         console,
     },
+    computed: {
+        runList() {
+            return this.$store.getters.runList;
+        },
+        rowSelection() {
+            return {};
+        },
+    },
     data() {
         return {
-            columns: [
-                {
+            columns: [{
                     title: '工程',
                     dataIndex: 'projectName',
                     key: 'projectName',
@@ -80,16 +73,13 @@ export default {
                     key: 'action',
                     width: 250,
                     align: 'left',
-                    scopedSlots: { customRender: 'action' },
+                    scopedSlots: {
+                        customRender: 'action'
+                    },
                 },
             ],
             projectList: [],
         };
-    },
-    computed: {
-        rowSelection() {
-            return {};
-        },
     },
     mounted() {
         this.getProjectList();
@@ -97,6 +87,18 @@ export default {
     methods: {
         showProjectModal() {
             this.$refs.pjtRef.showDialog();
+        },
+        /**
+         *  当前项目是否处于运行状态
+         */
+        isRun(project) {
+            const findPjtIndex = this.runList.findIndex(item => {
+                return item.projectId === project.projectId;
+            })
+            if (findPjtIndex > -1) {
+                return true;
+            }
+            return false;
         },
         /**
          * 显示项目运行控制台
@@ -141,7 +143,8 @@ export default {
                     },
                 })
                 .then((res) => {
-                    if (res.state === 200) {
+                    if (res.state === 200 || res.state === 300) {
+                        this.$refs.conRef.showDrawer(project.projectId);
                     }
                 })
                 .catch((err) => {
@@ -181,6 +184,7 @@ export default {
                 })
                 .then((res) => {
                     this.projectList = res.data;
+                    this.$store.dispatch('getRunList');
                 })
                 .catch((err) => {
                     this.$message.error(err);
@@ -193,6 +197,7 @@ export default {
 <style lang="scss" scoped>
 .project {
     padding: 0 20px;
+
     .project-add {
         padding: 16px 0px;
         text-align: right;

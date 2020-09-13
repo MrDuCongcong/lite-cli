@@ -1,11 +1,10 @@
-import Router from 'vue-router';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import Build from '@/pages/build.vue';
 import Project from '@/pages/project/index.vue';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
 const routes = [
     {

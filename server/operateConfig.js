@@ -124,7 +124,7 @@ const setModuleForProject = function(moduleBaseDir, projectId, modules, callback
  * @param {*} logDir 项目运行日志目录
  * @param {*} moduleBaseDir 项目模块配置文件目录
  */
-const deleteProjectById = function(projectId, projectConfigPath, logDir, moduleBaseDir) {
+const deleteProjectById = function(projectId, projectConfigPath, logDir, moduleBaseDir, cmdDir) {
     // 删除项目目录配置
     const tempProjectList = fs.readFileSync(projectConfigPath);
     let projectList = JSON.parse(tempProjectList.toString());
@@ -139,6 +139,13 @@ const deleteProjectById = function(projectId, projectConfigPath, logDir, moduleB
     const logPath = path.join(logDir, `${projectId}.txt`);
     if (fs.existsSync(logPath)) {
         fs.unlinkSync(logPath);
+    }
+
+    // 删除项目对应的命令行文件
+    const cmdPath = path.join(cmdDir, `${projectId}.bat`);
+
+    if (fs.existsSync(cmdPath)) {
+        fs.unlinkSync(cmdPath);
     }
 
     // 删除项目对应的模块文件
