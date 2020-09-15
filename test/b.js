@@ -1,5 +1,3 @@
-const modules = ['ass', 'bss', 'css'];
+const process = require('process');
 
-modules.forEach((item) => {
-    console.log(`'${item}'`);
-});
+console.log(process.cwd());

@@ -1,11 +1,20 @@
 [
     {
-        "projectName": "测试项目",
-        "projectId": "ac9b3010-5419-4e22-97aa-0ac9dd2b301b",
+        "projectName": "insight-bi",
+        "projectId": "f119e507-a042-4b97-9f08-fd1150aeb290",
         "description": "",
         "path": "",
-        "cmdSet": "npm run dev",
+        "cmdSet": "\ncd E:\\worker\\client\\insight-bi\nnpm run build:prod\n\nxcopy /E  E:\\worker\\client\\insight-bi\\dist  F:/",
         "moduleChoice": false,
-        "createDate": "2020-09-15 15:09:76"
+        "createDate": "2020-09-15 17:09:84"
+    },
+    {
+        "projectName": "测试项目二",
+        "projectId": "31eaf7d4-da62-4c84-93a9-2dbaa663c8cf",
+        "description": "",
+        "path": "",
+        "cmdSet": "cd E:\\worker\\client\\insight-bi\nnpm run dev",
+        "moduleChoice": false,
+        "createDate": "2020-09-15 18:09:26"
     }
 ]

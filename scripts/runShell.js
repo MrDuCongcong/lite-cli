@@ -6,6 +6,7 @@ const { clear } = require('console');
 const process = require('process');
 
 const runProjectList = [];
+const workPath = process.cwd(); // node.js进程当前工作目录
 
 exports.runShell = function(project, logDir, cmdDir, moduleBaseDir) {
     // 如果当前运行工程列表中已经存在该项目则返回
@@ -25,7 +26,7 @@ exports.runShell = function(project, logDir, cmdDir, moduleBaseDir) {
     const modulePath = `${moduleBaseDir}/${project.projectId}.json`;
 
     // 当前工程下的package.json文件路径
-    const packagePath = project.path.trim() ? path.resolve(project.path, 'package.json') : path.resolve(process.cwd(), 'package.json');
+    const packagePath = project.path.trim() ? path.resolve(project.path, 'package.json') : path.resolve(workPath, 'package.json');
 
     // 命令执行前先清理上一次的日志
     if (fs.existsSync(logPath)) {
@@ -57,7 +58,7 @@ exports.runShell = function(project, logDir, cmdDir, moduleBaseDir) {
     }
 
     // 运行工程如果有配置路径，则先将'导航到指定的路径下'的命令拼接到命令集中
-    let pathConmand = `cd /d ${project.path}\n`;
+    let pathConmand = project.path ? `cd /d ${project.path}\n` : '';
     let cmdSet = pathConmand.concat(project.cmdSet);
 
     fs.appendFileSync(cmdPath, cmdSet);
@@ -79,6 +80,12 @@ exports.runShell = function(project, logDir, cmdDir, moduleBaseDir) {
 
     process.stdout.on('error', (data) => {
         fs.appendFileSync(logPath, data);
+        // 当命令发送错误
+        // 就将其从runProjectList中移除
+        const findProjectIndex = runProjectList.findIndex((item) => {
+            return item.projectId === project.projectId;
+        });
+        runProjectList.splice(findProjectIndex, 1);
     });
 
     process.stdout.on('message', (data) => {
@@ -98,7 +105,7 @@ exports.runShell = function(project, logDir, cmdDir, moduleBaseDir) {
         });
         runProjectList.splice(findProjectIndex, 1);
         // 清空当前工程的bat文件内容
-        fs.writeFileSync(cmdPath, '');
+        // fs.writeFileSync(cmdPath, '');
     });
 
     return true;

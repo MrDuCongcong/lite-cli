@@ -4,6 +4,8 @@ const moment = require('moment');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 
+const workPath = process.cwd();
+
 /**
  *  获取配置文件中所有模块目录
  *  @param {path} 模块目录文件路径
@@ -14,7 +16,7 @@ const getModuleList = function(project, moduleConfigFile) {
     if (project.path) {
         configFilePath = path.resolve(project.path, moduleConfigFile);
     } else {
-        configFilePath = path.resolve(process.cwd(), moduleConfigFile);
+        configFilePath = path.resolve(workPath, moduleConfigFile);
     }
 
     const data = fs.readFileSync(configFilePath);
@@ -79,12 +81,10 @@ const addProject = function(moduleBaseDir, projectConfigPath, project, callback)
         }
 
         const findProjectIndex = projectList.findIndex((item, index) => {
-            if (item.projectId === project.projectId) {
-                return index;
-            }
+            return item.projectId === project.projectId;
         });
 
-        if (findProjectIndex !== -1) {
+        if (findProjectIndex > -1) {
             projectList.splice(findProjectIndex, 1, project);
 
             fs.writeFileSync(projectConfigPath, JSON.stringify(projectList, null, 4));

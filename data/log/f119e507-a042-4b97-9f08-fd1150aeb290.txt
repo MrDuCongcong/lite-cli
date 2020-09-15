@@ -1,0 +1,355 @@
+
+E:\front\lite-cli>cd E:\worker\client\insight-bi 
+
+E:\worker\client\insight-bi>npm run build:prod 
+
+> scene-lite@0.1.0 build:prod E:\worker\client\insight-bi
+> vue-cli-service build
+
+
+ WARNING  Compiled with 32 warnings6:21:23 ├F10: PM┤
+
+ warning  in ./src/graph/processing/datepick.js
+
+"export 'default' (imported as 'boardUtils') was not found in '@/graph/utils'
+
+ warning  in ./src/graph/processing/datepick.js
+
+"export 'default' (imported as 'boardUtils') was not found in '@/graph/utils'
+
+ warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/graph/domChart/condition.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/graph/processing/calendar.js
+
+"export 'defaultMFormater' (imported as 'viewConstants') was not found in '@/utils/constants'
+
+ warning  in ./src/graph/processing/calendar.js
+
+"export 'defaultMFormater' (imported as 'viewConstants') was not found in '@/utils/constants'
+
+ warning  in ./src/graph/processing/calendar.js
+
+"export 'defaultMFormater' (imported as 'viewConstants') was not found in '@/utils/constants'
+
+ warning  in ./src/graph/processing/calendar.js
+
+"export 'defaultMFormater' (imported as 'viewConstants') was not found in '@/utils/constants'
+
+ warning  in ./src/store/modules/dataManage/datasource.js
+
+"export 'deleteDataSource' (imported as 'api') was not found in '@/api/dataManage/datasource'
+
+ warning  in ./src/store/modules/dataManage/datasource.js
+
+"export 'getDatasourceDetail' (imported as 'api') was not found in '@/api/dataManage/datasource'
+
+ warning  in ./src/store/modules/dataManage/datasource.js
+
+"export 'getProviderTypeInfos' (imported as 'api') was not found in '@/api/dataManage/datasource'
+
+ warning  in ./src/graph/utils/index.js
+
+"export 'logicType' (imported as 'viewEnum') was not found in '@/utils/enum'
+
+ warning  in ./src/views/edit/components/interactive/tools/rulesEditor.vue?vue&type=script&lang=js&
+
+"export 'logicType' (imported as 'viewEnum') was not found in '@/utils/enum'
+
+ warning  in ./src/views/edit/components/interactive/tools/rulesEditor.vue?vue&type=script&lang=js&
+
+"export 'logicType' (imported as 'viewEnum') was not found in '@/utils/enum'
+
+ warning  in ./src/views/edit/components/interactive/tools/rulesEditor.vue?vue&type=script&lang=js&
+
+"export 'logicType' (imported as 'viewEnum') was not found in '@/utils/enum'
+
+ warning  in ./src/components/Tinymce/plugins/dataset/panel.vue?vue&type=script&lang=js&
+
+"export 'operation' (imported as 'viewEnum') was not found in '@/views/utils/enum'
+
+ warning  in ./src/components/Tinymce/plugins/dataset/panel.vue?vue&type=script&lang=js&
+
+"export 'operationTip' (imported as 'viewEnum') was not found in '@/views/utils/enum'
+
+ warning  in ./src/graph/renderer/mapRenderer.js
+
+"export 'saveCanvasAsPNG' (imported as 'globalUtils') was not found in '@/utils'
+
+ warning  in ./src/store/modules/dataManage/datasource.js
+
+"export 'saveDatasource' (imported as 'api') was not found in '@/api/dataManage/datasource'
+
+ warning  in ./src/store/modules/dataManage/datasource.js
+
+"export 'saveDatasource' (imported as 'api') was not found in '@/api/dataManage/datasource'
+
+ warning  in ./src/graph/renderer/d3Renderer.js
+
+"export 'saveSVGASPNG' (imported as 'utils') was not found in '../utils'
+
+ warning  in ./src/graph/renderer/vueRenderer.js
+
+"export 'saveVueAsPNG' (imported as 'utils') was not found in '../utils'
+
+ warning  in ./src/views/edit/utils/options/table.js
+
+"export 'setPropertyValue' (imported as 'optionsCommon') was not found in '../optionsCommon'
+
+ warning  
+
+asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  static/css/app.ba9b9d36.css (522 KiB)
+  static/js/app.baec845f.js (3.44 MiB)
+  static/css/chunk-16759055.4af303cf.css (303 KiB)
+  static/js/chunk-16759055.62223cb0.js (5.69 MiB)
+  static/js/chunk-170f72c3.73244741.js (1.17 MiB)
+  static/js/chunk-4e27cfbc.9f89706a.js (1.16 MiB)
+  static/js/chunk-5818e6d4.f2d45e3f.js (1.95 MiB)
+  static/js/chunk-6114e0a1.1c6e31f9.js (480 KiB)
+  static/js/chunk-9dd2722c.68369eb4.js (378 KiB)
+  static/js/chunk-a209ef92.2196a677.js (834 KiB)
+  static/js/chunk-ba5f4886.ce26848f.js (2.22 MiB)
+
+ warning  
+
+entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  app (3.95 MiB)
+      static/css/app.ba9b9d36.css
+      static/js/app.baec845f.js
+
+
+  File                                      Size             Gzipped
+
+  dist\static\js\chunk-16759055.62223cb0    5830.36 KiB      1699.43 KiB
+  .js
+  dist\static\js\app.baec845f.js            3521.45 KiB      1070.30 KiB
+  dist\static\js\chunk-ba5f4886.ce26848f    2277.60 KiB      661.45 KiB
+  .js
+  dist\static\js\chunk-5818e6d4.f2d45e3f    1999.77 KiB      582.04 KiB
+  .js
+  dist\static\js\chunk-170f72c3.73244741    1193.97 KiB      299.00 KiB
+  .js
+  dist\static\js\chunk-4e27cfbc.9f89706a    1185.90 KiB      355.00 KiB
+  .js
+  dist\static\js\chunk-a209ef92.2196a677    833.73 KiB       230.28 KiB
+  .js
+  dist\static\js\chunk-6114e0a1.1c6e31f9    479.88 KiB       153.00 KiB
+  .js
+  dist\static\js\chunk-9dd2722c.68369eb4    377.60 KiB       94.24 KiB
+  .js
+  dist\static\js\chunk-54a80722.c7ed6f08    147.13 KiB       40.43 KiB
+  .js
+  dist\static\js\chunk-3c36363d.b5645d55    40.95 KiB        10.53 KiB
+  .js
+  dist\static\js\chunk-933585f0.41c46653    40.37 KiB        11.90 KiB
+  .js
+  dist\static\js\chunk-e756a6b2.228873c0    33.41 KiB        9.43 KiB
+  .js
+  dist\static\js\chunk-2d0ddb63.6e7ecec2    32.13 KiB        11.29 KiB
+  .js
+  dist\static\js\chunk-5d0f2eb0.be6d358e    23.21 KiB        6.41 KiB
+  .js
+  dist\static\js\chunk-23ef6185.7ba28d17    18.15 KiB        5.14 KiB
+  .js
+  dist\static\js\chunk-2d21085a.09f20bab    17.89 KiB        5.22 KiB
+  .js
+  dist\static\js\chunk-b0c9950e.ee871961    16.10 KiB        5.30 KiB
+  .js
+  dist\static\js\chunk-51b75946.93b63ec5    16.03 KiB        5.42 KiB
+  .js
+  dist\static\js\chunk-6c0be122.77f9f392    14.03 KiB        4.30 KiB
+  .js
+  dist\editor\langs\zh_CN.js                13.10 KiB        5.85 KiB
+  dist\static\js\chunk-e70a33bc.9a81b705    12.26 KiB        3.89 KiB
+  .js
+  dist\f2783d1ff5bf90fb933e.worker.js       11.51 KiB        4.26 KiB
+  dist\static\js\chunk-604cad60.5e7f3137    10.18 KiB        3.59 KiB
+  .js
+  dist\static\js\chunk-f23c7aaa.a4ea20e5    9.28 KiB         3.20 KiB
+  .js
+  dist\static\js\chunk-fbd8cfdc.15e3c961    7.79 KiB         2.52 KiB
+  .js
+  dist\static\js\chunk-0de0ac47.64835b5c    6.32 KiB         2.49 KiB
+  .js
+  dist\static\js\chunk-15ec8cfe.ad55ee25    5.84 KiB         1.74 KiB
+  .js
+  dist\static\js\chunk-39a885e2.293c0820    5.33 KiB         2.37 KiB
+  .js
+  dist\static\js\chunk-cec8e002.08563bbc    4.37 KiB         2.65 KiB
+  .js
+  dist\static\js\chunk-d49bed12.9ecee903    2.81 KiB         1.05 KiB
+  .js
+  dist\static\js\chunk-0ebf5382.0d676f36    1.89 KiB         1.03 KiB
+  .js
+  dist\static\js\chunk-7b13a56b.fb4bf071    1.19 KiB         0.61 KiB
+  .js
+  dist\78f7a32e7bfe339e1aa2.worker.js       0.97 KiB         0.48 KiB
+  dist\static\js\chunk-61904fa2.bea48242    0.77 KiB         0.44 KiB
+  .js
+  dist\static\js\chunk-8211a022.f1ecd751    0.58 KiB         0.36 KiB
+  .js
+  dist\static\js\chunk-7a13deaf.b0a7cd0b    0.58 KiB         0.36 KiB
+  .js
+  dist\static\js\chunk-333243be.d5bda99d    0.53 KiB         0.37 KiB
+  .js
+  dist\static\js\chunk-2d2105d3.51207f2c    0.42 KiB         0.30 KiB
+  .js
+  dist\static\js\chunk-2d230fe7.e7e4a023    0.36 KiB         0.26 KiB
+  .js
+  dist\static\css\app.ba9b9d36.css          521.61 KiB       70.63 KiB
+  dist\static\css\chunk-16759055.4af303c    303.40 KiB       53.44 KiB
+  f.css
+  dist\static\css\chunk-ba5f4886.12b15b8    136.37 KiB       27.89 KiB
+  6.css
+  dist\static\css\chunk-a209ef92.97c6e1d    112.42 KiB       24.14 KiB
+  9.css
+  dist\static\css\chunk-5818e6d4.3b8b9f4    86.38 KiB        15.71 KiB
+  b.css
+  dist\editor\skins\ui\oxide\skin.css       65.79 KiB        10.04 KiB
+  dist\editor\skins\ui\oxide-dark\skin.c    65.65 KiB        10.06 KiB
+  ss
+  dist\editor\skins\ui\oxide\skin.min.cs    55.23 KiB        9.31 KiB
+  s
+  dist\editor\skins\ui\oxide-dark\skin.m    55.11 KiB        9.30 KiB
+  in.css
+  dist\static\css\chunk-4e27cfbc.fd231c1    45.75 KiB        6.45 KiB
+  7.css
+  dist\editor\skins\ui\oxide-dark\skin.m    24.04 KiB        3.66 KiB
+  obile.css
+  dist\editor\skins\ui\oxide\skin.mobile    24.04 KiB        3.66 KiB
+  .css
+  dist\editor\skins\ui\oxide-dark\skin.m    20.51 KiB        2.89 KiB
+  obile.min.css
+  dist\editor\skins\ui\oxide\skin.mobile    20.51 KiB        2.89 KiB
+  .min.css
+  dist\editor\skins\ui\oxide\content.css    19.68 KiB        5.07 KiB
+  dist\editor\skins\ui\oxide-dark\conten    19.60 KiB        5.05 KiB
+  t.inline.css
+  dist\editor\skins\ui\oxide\content.inl    19.60 KiB        5.05 KiB
+  ine.css
+  dist\editor\skins\ui\oxide-dark\conten    19.27 KiB        5.03 KiB
+  t.css
+  dist\editor\skins\ui\oxide\content.min    17.75 KiB        4.80 KiB
+  .css
+  dist\editor\skins\ui\oxide-dark\conten    17.69 KiB        4.78 KiB
+  t.inline.min.css
+  dist\editor\skins\ui\oxide\content.inl    17.69 KiB        4.78 KiB
+  ine.min.css
+  dist\editor\skins\ui\oxide-dark\conten    17.39 KiB        4.75 KiB
+  t.min.css
+  dist\static\css\chunk-3c36363d.5c055f7    13.36 KiB        2.59 KiB
+  3.css
+  dist\static\css\chunk-5d0f2eb0.196b312    8.51 KiB         1.68 KiB
+  b.css
+  dist\static\css\chunk-7b13a56b.4b51994    7.71 KiB         1.23 KiB
+  5.css
+  dist\static\css\chunk-933585f0.1c6eb63    6.26 KiB         1.42 KiB
+  e.css
+  dist\static\css\chunk-e756a6b2.23a1fb3    6.20 KiB         1.55 KiB
+  3.css
+  dist\static\css\chunk-23ef6185.dc4125f    4.83 KiB         1.10 KiB
+  7.css
+  dist\static\css\chunk-cec8e002.96e1115    4.64 KiB         0.83 KiB
+  3.css
+  dist\static\css\chunk-9dd2722c.cfc1739    4.09 KiB         1.20 KiB
+  e.css
+  dist\static\css\chunk-15ec8cfe.e4c0916    3.06 KiB         0.71 KiB
+  0.css
+  dist\static\css\chunk-f23c7aaa.958f7a6    2.29 KiB         0.75 KiB
+  0.css
+  dist\static\css\chunk-51b75946.56d94e0    2.22 KiB         0.62 KiB
+  5.css
+  dist\static\css\chunk-e70a33bc.5e02f0e    1.75 KiB         0.56 KiB
+  4.css
+  dist\static\css\chunk-d49bed12.74a218d    1.69 KiB         0.54 KiB
+  7.css
+  dist\static\css\chunk-0de0ac47.53eef6c    1.67 KiB         0.65 KiB
+  3.css
+  dist\editor\skins\content\tinymce-lite    1.37 KiB         0.55 KiB
+  .css
+  dist\editor\skins\content\dark\content    1.28 KiB         0.65 KiB
+  .css
+  dist\editor\skins\content\document\con    1.19 KiB         0.62 KiB
+  tent.css
+  dist\editor\skins\content\default\cont    1.15 KiB         0.58 KiB
+  ent.css
+  dist\editor\skins\content\writer\conte    1.10 KiB         0.57 KiB
+  nt.css
+  dist\static\css\chunk-604cad60.0e5a7bc    1.08 KiB         0.38 KiB
+  6.css
+  dist\editor\skins\content\dark\content    1.06 KiB         0.59 KiB
+  .min.css
+  dist\static\css\chunk-6c0be122.414fd17    1.03 KiB         0.39 KiB
+  e.css
+  dist\editor\skins\content\document\con    1.02 KiB         0.59 KiB
+  tent.min.css
+  dist\editor\skins\content\writer\conte    0.96 KiB         0.55 KiB
+  nt.min.css
+  dist\editor\skins\content\default\cont    0.93 KiB         0.53 KiB
+  ent.min.css
+  dist\static\css\chunk-0ebf5382.16f8f5c    0.73 KiB         0.29 KiB
+  a.css
+  dist\editor\skins\ui\oxide-dark\conten    0.71 KiB         0.42 KiB
+  t.mobile.css
+  dist\editor\skins\ui\oxide\content.mob    0.71 KiB         0.42 KiB
+  ile.css
+  dist\editor\skins\ui\oxide-dark\conten    0.53 KiB         0.34 KiB
+  t.mobile.min.css
+  dist\editor\skins\ui\oxide\content.mob    0.53 KiB         0.34 KiB
+  ile.min.css
+  dist\static\css\chunk-fbd8cfdc.05f53de    0.49 KiB         0.25 KiB
+  c.css
+  dist\editor\skins\content\extend\dream    0.15 KiB         0.12 KiB
+  font.css
+  dist\static\css\chunk-7a13deaf.d32faec    0.14 KiB         0.11 KiB
+  2.css
+  dist\static\css\chunk-8211a022.b47819a    0.14 KiB         0.11 KiB
+  c.css
+  dist\static\css\chunk-61904fa2.f057c64    0.08 KiB         0.10 KiB
+  9.css
+  dist\static\css\chunk-333243be.534b977    0.07 KiB         0.09 KiB
+  1.css
+
+  Images and other types of assets omitted.
+
+ DONE  Build complete. The dist directory is ready to be deployed.
+ INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+      
+子进程退出，退出码 0子进程关闭，退出码 0

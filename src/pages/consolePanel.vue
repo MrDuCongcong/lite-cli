@@ -1,20 +1,19 @@
 <template>
     <div class="tabs">
-        <a-drawer :destroyOnClose="true"
-                  height="300"
-                  :closable="true"
-                  :mask="false"
-                  :maskClosable="false"
-                  :visible="visible"
-                  :placement="placement"
-                  @close="onClose">
+        <a-drawer
+            :destroyOnClose="true"
+            height="300"
+            :closable="true"
+            :mask="false"
+            :maskClosable="false"
+            :visible="visible"
+            :placement="placement"
+            @close="onClose"
+        >
             <a-tabs>
-                <a-tab-pane v-for="(runPrj, index) in runLogList"
-                            :key="index"
-                            :tab="runPrj.projectName"
-                            @change="handleTabChange">
+                <a-tab-pane v-for="(runPrj, index) in runLogList" :key="index" :tab="runPrj.projectName" @change="handleTabChange">
                     <div class="tabs-content">
-                        <pre>{{runPrj.runLog}}</pre>
+                        <pre>{{ runPrj.runLog }}</pre>
                     </div>
                 </a-tab-pane>
             </a-tabs>
@@ -121,9 +120,28 @@ export default {
 
 <style lang="scss" scoped>
 .tabs {
-    .tabs-content {
-        width: 100%;
-        height: 100%;
-    }
+}
+</style>
+
+<style lang="scss">
+.tabs-content {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+.ant-tabs-bar {
+    margin: 0px;
+}
+
+.ant-drawer-body {
+    padding: 0px 24px 24px !important;
+    height: 100%;
+}
+
+.ant-tabs-content {
+    height: 100%;
+}
+.ant-tabs {
+    height: 100%;
 }
 </style>
