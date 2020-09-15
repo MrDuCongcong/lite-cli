@@ -7,15 +7,23 @@ const path = require('path');
 /**
  *  获取配置文件中所有模块目录
  *  @param {path} 模块目录文件路径
+ *  @param {moduleConfigFile} 工程下的模块目录配置文件
  */
-const getModuleList = function(moduleConfigPath) {
-    const data = fs.readFileSync(moduleConfigPath);
+const getModuleList = function(project, moduleConfigFile) {
+    let configFilePath = '';
+    if (project.path) {
+        configFilePath = path.resolve(project.path, moduleConfigFile);
+    } else {
+        configFilePath = path.resolve(process.cwd(), moduleConfigFile);
+    }
+
+    const data = fs.readFileSync(configFilePath);
     const dataObj = JSON.parse(data.toString());
     return dataObj;
 };
 
 /**
- *  根据工程Id获取模块
+ *  根据工程Id获取模块。获取当前工程被勾选的模块
  *  @param {projectId} 工程Id
  */
 const getModuleByProjectId = function(projectId, moduleBaseDir, callback) {
@@ -61,6 +69,8 @@ const getProjectCategory = function(path) {
  */
 const addProject = function(moduleBaseDir, projectConfigPath, project, callback) {
     if (project.projectId) {
+        // 如果有projectId则是编辑工程，查找相应的project对象替换
+
         // 将工程信息写入工程目录文件
         const data = fs.readFileSync(projectConfigPath).toString();
         let projectList = [];
@@ -83,6 +93,8 @@ const addProject = function(moduleBaseDir, projectConfigPath, project, callback)
             callback(projectList);
         }
     } else {
+        // 否则将project对象写入列表中
+
         project.projectId = uuidv4();
         // 将创建日期写到工程对象中
         project.createDate = new moment().format('YYYY-MM-DD HH:MM:SS');

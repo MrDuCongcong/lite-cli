@@ -6,9 +6,10 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const operateConfig = require('./operateConfig');
+const process = require('process');
 
 const buildServer = require('../scripts/build');
-const { runShell, runList, runLog } = require('../scripts/runShell');
+const { runShell, runList, runLog, suspendRun } = require('../scripts/runShell');
 
 const basePath = 'data';
 const workPath = process.cwd(); // node.js进程当前工作目录
@@ -16,13 +17,16 @@ const workPath = process.cwd(); // node.js进程当前工作目录
 // 项目目录配置文件
 const projectConfigPath = path.resolve(__dirname, `../${basePath}/project.config.json`);
 // 模块目录配置文件
-const moduleConfigPath = path.resolve(__dirname, `../${basePath}/module.config.json`);
+//const moduleConfigPath = path.resolve(__dirname, `../${basePath}/module.config.json`);
+// 模块目录配置文件名称。该文件保存着当前工程下所有模块的目录
+const moduleConfigFile = 'module.config.json';
+
 // 保存项目拥有模块的文件的目录
 const moduleBaseDir = path.resolve(__dirname, `../${basePath}/projects`);
 // 报错项目临时执行脚本的文件的目录
 const templogDir = path.resolve(__dirname, `../${basePath}/log`);
 // 命令行目录
-const cmdDir = path.resolve(__dirname, `../${basePath}/bat`)
+const cmdDir = path.resolve(__dirname, `../${basePath}/bat`);
 
 const responseData = {
     state: '',
@@ -72,7 +76,10 @@ function createServer() {
     });
 
     app.get('/getModuleList', (req, res) => {
-        const data = operateConfig.getModuleList(moduleConfigPath);
+        const projectId = req.param('projectId');
+        const project = operateConfig.getProjectById(projectId, projectConfigPath);
+
+        const data = operateConfig.getModuleList(project, moduleConfigFile);
         let responseData = {
             state: 200,
             data: data,
@@ -121,7 +128,6 @@ function createServer() {
                 message: '',
             };
         } catch (e) {
-            console.log(e.message);
             responseData = {
                 state: 500,
                 data: '',
@@ -133,32 +139,64 @@ function createServer() {
     });
 
     app.get('/runProjectShell', (req, res) => {
-        let responseData = {
-            state: '',
-            data: '',
-            message: '',
-        };
+        let responseData = '',
+            sucCount = 0,
+            failCount = 0;
+        const result = [];
 
-        const projectId = req.param('projectId');
+        const projectIds = req.param('projectIds');
 
-        try {
-            const project = operateConfig.getProjectById(projectId, projectConfigPath);
-            const state = runShell(project, templogDir, cmdDir);
-            if (state) {
-                responseData.state = 200;
+        if (Array.isArray) {
+            projectIds.forEach((projectId) => {
+                try {
+                    const project = operateConfig.getProjectById(projectId, projectConfigPath);
+                    const state = runShell(project, templogDir, cmdDir, moduleBaseDir);
+                    if (state) {
+                        responseData = {
+                            state: 200,
+                            data: '',
+                            message: '',
+                        };
+                    } else {
+                        responseData = {
+                            state: 300,
+                            data: '',
+                            message: `项目${project.projectName}已经在运行中`,
+                        };
+                    }
+                } catch (err) {
+                    console.log(err);
+                    responseData = {
+                        state: 500,
+                        data: '',
+                        message: err.message,
+                    };
+                }
+                result.push(responseData);
+            });
+        }
+
+        result.forEach((item) => {
+            if (item.state === 200 || item.state === 300) {
+                sucCount += 1;
             } else {
-                responseData.state = 300;
-                responseData.message = '该项目已经在运行中';
+                failCount += 1;
             }
-            
-        } catch {
+        });
+
+        if (sucCount > 0) {
+            responseData = {
+                state: 200,
+                data: '',
+                message: `${sucCount}个项目运行成功，${failCount}个项目运行失败`,
+            };
+        } else {
             responseData = {
                 state: 500,
                 data: '',
-                message: '服务端错误',
+                message: `项目运行失败`,
             };
         }
-
         res.send(responseData);
     });
 
@@ -186,8 +224,8 @@ function createServer() {
 
         let responseData = {};
         try {
-            const data = runLog(projectId, templogDir);
-            responseData.data = data;
+            const result = runLog(projectId, templogDir);
+            responseData.data = result;
             responseData.message = '';
             responseData.state = 200;
         } catch {
@@ -199,6 +237,26 @@ function createServer() {
         }
         res.send(responseData);
     });
+
+    app.get('/suspendProject', (req, res) => {
+        const projectId = req.param('projectId');
+
+        let responseData = {};
+        try {
+            const result = suspendRun(projectId);
+            responseData.data = '';
+            responseData.message = '';
+            responseData.state = 200;
+        } catch {
+            responseData = {
+                state: 500,
+                data: '',
+                message: '服务端错误',
+            };
+        }
+        res.send(responseData);
+    });
+
     return app;
 }
 

@@ -1,45 +1,77 @@
 <template>
-<div class="project">
-    <div class="project-add">
-        <a-button type="primary" @click="showProjectModal">新增项目</a-button>
-        <a-button @click="showConDrawer">控制台</a-button>
+    <div class="project">
+        <div class="project-add">
+            <a-button class="opea-left"
+                      type="primary"
+                      :disabled="!hasSelected"
+                      @click="runProjects">
+                运行
+            </a-button>
+            <a-button class="opea-right"
+                      type="primary"
+                      @click="showProjectModal">
+                新增项目
+            </a-button>
+            <a-button class="opea-right"
+                      @click="showConDrawer">
+                控制台
+            </a-button>
+        </div>
+        <a-table :row-selection="{ selectedRowKeys: selectedProjectId, onChange: onSelectChange }"
+                 :columns="columns"
+                 :data-source="projectList"
+                 :rowKey="record => record.projectId">
+            <span slot="projectName"
+                  slot-scope="text">{{ text }}</span>
+            <span slot="createDate"
+                  slot-scope="text">{{ text }}</span>
+            <span slot="description"
+                  slot-scope="text">{{ text }}</span>
+            <span slot="action"
+                  slot-scope="text, record">
+                <a-icon v-if="isRun(record)"
+                        type="loading" />
+                <a class="opea-icon"
+                   v-if="!isRun(record)"
+                   @click="runProject(record)">运行</a>
+                <a class="opea-icon"
+                   v-if="isRun(record)"
+                   @click="suspendRunProject(record)">中止</a>
+                <!-- <a class="opea-icon" @click="buildProject(record)">打包</a> -->
+                <a-divider type="vertical" />
+                <a class="opea-icon"
+                   @click="editProject(record)">编辑</a>
+                <a-divider type="vertical" />
+                <a class="opea-icon"
+                   @click="deleteOpea(record)">删除</a>
+                <a-divider type="vertical"
+                           v-if="record.moduleChoice" />
+                <a class="opea-icon"
+                   v-if="record.moduleChoice"
+                   @click="editModuleTree(record)">模块</a>
+
+                <!-- <a-icon class="opea-icon" type="setting" @click="buildProject(record)"/> -->
+            </span>
+        </a-table>
+
+        <build ref="buildRef"></build>
+        <project-modal ref="pjtRef"
+                       @handleOk="addProject"></project-modal>
+        <console-panel ref="conRef"></console-panel>
     </div>
-    <a-table :row-selection="rowSelection" :columns="columns" :data-source="projectList">
-        <span slot="projectName" slot-scope="text">{{ text }}</span>
-        <span slot="createDate" slot-scope="text">{{ text }}</span>
-        <span slot="description" slot-scope="text">{{ text }}</span>
-        <span slot="action" slot-scope="text, record">
-            <a-icon v-if="isRun(record)" type="loading" />
-            <a class="opea-icon" @click="runProject(record)">运行</a>
-            <!-- <a class="opea-icon" @click="buildProject(record)">打包</a> -->
-            <a-divider type="vertical" />
-            <a class="opea-icon" @click="editProject(record)">编辑</a>
-            <a-divider type="vertical" />
-            <a class="opea-icon" @click="deleteOpea(record)">删除</a>
-            <a-divider type="vertical" v-if="record.moduleChoice" />
-            <a class="opea-icon" v-if="record.moduleChoice" @click="editModuleTree(record)">模块</a>
-
-            <!-- <a-icon class="opea-icon" type="setting" @click="buildProject(record)"/> -->
-        </span>
-    </a-table>
-
-    <build ref="buildRef"></build>
-    <project-modal ref="pjtRef" @handleOk="addProject"></project-modal>
-    <console ref="conRef"></console>
-</div>
 </template>
 
 <script>
 import build from '@/pages/build.vue';
 import projectModal from './projectModal.vue';
-import console from '../console.vue';
+import consolePanel from '../consolePanel.vue';
 
 export default {
     name: 'project',
     components: {
         build,
         projectModal,
-        console,
+        consolePanel,
     },
     computed: {
         runList() {
@@ -48,10 +80,14 @@ export default {
         rowSelection() {
             return {};
         },
+        hasSelected() {
+            return this.selectedProjectId.length > 0;
+        },
     },
     data() {
         return {
-            columns: [{
+            columns: [
+                {
                     title: '工程',
                     dataIndex: 'projectName',
                     key: 'projectName',
@@ -74,11 +110,13 @@ export default {
                     width: 250,
                     align: 'left',
                     scopedSlots: {
-                        customRender: 'action'
+                        customRender: 'action',
                     },
                 },
             ],
             projectList: [],
+            selectedProjectId: [],
+            selectedProjects: [],
         };
     },
     mounted() {
@@ -92,9 +130,9 @@ export default {
          *  当前项目是否处于运行状态
          */
         isRun(project) {
-            const findPjtIndex = this.runList.findIndex(item => {
+            const findPjtIndex = this.runList.findIndex((item) => {
                 return item.projectId === project.projectId;
-            })
+            });
             if (findPjtIndex > -1) {
                 return true;
             }
@@ -136,22 +174,41 @@ export default {
             });
         },
         runProject(project) {
+            this.selectedProjectId = [];
+
             this.$api
                 .get('/runProjectShell', {
                     params: {
-                        projectId: project.projectId,
+                        projectIds: [project.projectId],
                     },
                 })
                 .then((res) => {
                     if (res.state === 200 || res.state === 300) {
                         this.$refs.conRef.showDrawer(project.projectId);
+                    } else {
+                        this.$message.error(res.message);
                     }
                 })
                 .catch((err) => {
                     this.$message.error(err);
                 });
         },
-
+        runProjects() {
+            this.$api
+                .get('/runProjectShell', {
+                    params: {
+                        projectIds: this.selectedProjectId,
+                    },
+                })
+                .then((res) => {
+                    if (res.state === 200 || res.state === 300) {
+                        this.$refs.conRef.showDrawer(this.selectedProjectId[0]);
+                    }
+                })
+                .catch((err) => {
+                    this.$message.error(err);
+                });
+        },
         buildProject(project) {
             this.$api
                 .get('/buildProject', {
@@ -170,6 +227,7 @@ export default {
                 .get('/projectList')
                 .then((res) => {
                     this.projectList = res.data;
+                    this.$store.dispatch('getRunList');
                 })
                 .catch((err) => {
                     this.$message.error(err);
@@ -190,6 +248,19 @@ export default {
                     this.$message.error(err);
                 });
         },
+
+        onSelectChange(selectedProjectId, selectedRows) {
+            this.selectedProjectId = selectedProjectId;
+            this.selectedProjects = selectedRows;
+        },
+
+        /**
+         * 中止项目运行
+         * @param {Object} project 项目信息
+         */
+        suspendRunProject(project) {
+            this.$refs.conRef.suspendRunProject(project);
+        },
     },
 };
 </script>
@@ -200,7 +271,14 @@ export default {
 
     .project-add {
         padding: 16px 0px;
-        text-align: right;
+        overflow: hidden;
+        .opea-left {
+            float: left;
+        }
+        .opea-right {
+            float: right;
+            margin-left: 10px;
+        }
     }
 }
 </style>

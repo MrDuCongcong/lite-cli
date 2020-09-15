@@ -1,11 +1,11 @@
 [
     {
         "projectName": "测试项目",
-        "projectId": "cc96ad96-b04a-416e-b657-075bfb3d29cf",
-        "description": "这是一个测试项目",
-        "path": "D:\\front\\worker\\insight-bi",
+        "projectId": "ac9b3010-5419-4e22-97aa-0ac9dd2b301b",
+        "description": "",
+        "path": "",
         "cmdSet": "npm run dev",
-        "moduleChoice": true,
-        "createDate": "2020-09-14 00:09:24"
+        "moduleChoice": false,
+        "createDate": "2020-09-15 15:09:76"
     }
 ]

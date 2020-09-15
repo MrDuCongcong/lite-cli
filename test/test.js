@@ -10,8 +10,6 @@ pathc = path.resolve(__dirname, 'a.bat');
 // const pid = spawn('cd', ['/d', 'E:\\worker\\client\\insight-bi'], { cwd: pathc });
 // const pid = execFile('./com');
 
-console.log(execa);
-
 const pid = execFile(pathc, [], { maxBuffer: 5000 * 1024 });
 
 pid.stdout.on('data', (data) => {

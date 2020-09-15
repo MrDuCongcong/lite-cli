@@ -1,15 +1,18 @@
 <template>
     <div class="build">
-        <a-modal title="模块选择" cancelText="取消" okText="确定" :visible="buildDialogVisible" @ok="handleOk" @cancel="handleCancel">
+        <a-modal title="模块选择"
+                 cancelText="取消"
+                 okText="确定"
+                 :visible="buildDialogVisible"
+                 @ok="handleOk"
+                 @cancel="handleCancel">
             <div class="build-content">
-                <a-tree
-                    v-model="selectedModule"
-                    checkable
-                    :replace-fields="replaceFields"
-                    :default-expand-all="true"
-                    :tree-data="projectList"
-                    @check="handleCheck"
-                />
+                <a-tree v-model="selectedModule"
+                        checkable
+                        :replace-fields="replaceFields"
+                        :default-expand-all="true"
+                        :tree-data="projectList"
+                        @check="handleCheck" />
             </div>
         </a-modal>
     </div>
@@ -44,14 +47,18 @@ export default {
         showDialog(projectId) {
             this.projectId = projectId;
             this.buildDialogVisible = true;
-            this.getModuleList();
+            this.getModuleList(projectId);
         },
         goBack() {
             this.$router.back();
         },
-        getModuleList() {
+        getModuleList(projectId) {
             this.$api
-                .get('/getModuleList')
+                .get('/getModuleList', {
+                    params: {
+                        projectId: projectId,
+                    },
+                })
                 .then((res) => {
                     this.projectList = res.data;
                     this.getModuleByProjectId();
@@ -74,18 +81,15 @@ export default {
                     this.$message.error(err);
                 });
         },
-        handleCheck() {
-            console.log('this.selectModule', this.selectedModule);
-        },
+        handleCheck() {},
         handleMoudleChange() {
             this.$api
-                .post('modulesForProject', {
+                .post('/modulesForProject', {
                     modules: this.selectedModule,
                     projectId: this.projectId,
                 })
                 .then((res) => {
-                    const data = res.data;
-                    if (data.state === 200) {
+                    if (res.state === 200) {
                         this.buildDialogVisible = false;
                         this.$message.success('项目模块修改成功');
                     }

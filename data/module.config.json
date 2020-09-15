@@ -1,276 +1,144 @@
- [  
-    {
-        "type": "plane",
-        "name": "二维图",
-        "children": [
-            {
-                "name": "折线(面积)图",
-                "children": [
-                    {
-                        "type": "line",
-                        "name": "折线图"
-                    },
-                    {
-                        "type": "timeLine",
-                        "name": "时间折线图"
-                    },
-                    {
-                        "type": "area_line",
-                        "name": "面积折线图"
-                    }
-                ]
-            },
-            {
-                "name": "柱状(条形)图",
-                "children": [
-                    {
-                        "type": "histogram",
-                        "name": "柱状图"
-                    },
-                    {
-                        "type": "stack_bar",
-                        "name": "堆叠柱状图"
-                    },
-                    {
-                        "type": "s_stack_bar",
-                        "name": "多系列堆叠柱状图"
-                    },
-                    {
-                        "type": "bar",
-                        "name": "条形图"
-                    },
-                    {
-                        "type": "two_way_bar",
-                        "name": "双向条形图"
-                    },
-                    {
-                        "type": "nest_bar",
-                        "name": "堆叠条形图"
-                    },
-                    {
-                        "type": "hisLine",
-                        "name": "柱线组合图"
-                    }                
-                ]
-            },
-            {
-                "name": "排名图",
-                "children": [
-                    {
-                        "type": "rank",
-                        "name": "排名图"
-                    },
-                    {
-                        "type": "topList",
-                        "name": "大屏排名图"
-                    }
-                ]
-            },
-            {
-                "name": "散点(气泡)图",
-                "children": [
-                    {
-                        "type": "scatter",
-                        "name": "散点图"
-                    },
-                    {
-                        "type": "singleAxis",
-                        "name": "单轴散点图"
-                    }
-                ]
-            },
-            {
-                "name": "饼(圆环)图",
-                "children": [
-                    {
-                        "type": "pie",
-                        "name": "饼图"
-                    }
-                ]
-            },
-            {
-                "name": "雷达图",
-                "children": [
-                    {
-                        "type": "radar",
-                        "name": "雷达图"
-                    }
-                ]
-            },
+ [{
+         "type": "line",
+         "name": "折线图"
+     },
+     {
+         "type": "timeLine",
+         "name": "时间折线图"
+     },
+     {
+         "type": "area_line",
+         "name": "面积折线图"
+     },
+     {
+         "type": "histogram",
+         "name": "柱状图"
+     },
+     {
+         "type": "stack_bar",
+         "name": "堆叠柱状图"
+     },
+     {
+         "type": "s_stack_bar",
+         "name": "多系列堆叠柱状图"
+     },
+     {
+         "type": "bar",
+         "name": "条形图"
+     },
+     {
+         "type": "two_way_bar",
+         "name": "双向条形图"
+     },
+     {
+         "type": "nest_bar",
+         "name": "堆叠条形图"
+     },
+     {
+         "type": "hisLine",
+         "name": "柱线组合图"
+     },
+     {
+         "type": "rank",
+         "name": "排名图"
+     },
+     {
+         "type": "topList",
+         "name": "大屏排名图"
+     },
+     {
+         "type": "scatter",
+         "name": "散点图"
+     },
+     {
+         "type": "singleAxis",
+         "name": "单轴散点图"
+     },
+     {
+         "type": "pie",
+         "name": "饼图"
+     },
+     {
+         "type": "radar",
+         "name": "雷达图"
+     },
+     {
+         "type": "funnel",
+         "name": "漏斗图"
+     },
+     {
+         "type": "pictorialBar",
+         "name": "象形柱图"
+     },
+     {
+         "type": "v_pictorialBar",
+         "name": "横向象形图"
+     },
+     {
+         "type": "sunburst",
+         "name": "旭日图"
+     },
+     {
+         "type": "calendar",
+         "name": "日历热力图"
+     },
 
-            {
-                "name": "漏斗图",
-                "children": [
-                    {
-                        "type": "funnel",
-                        "name": "漏斗图"
-                    }
-                ]
-            }, 
-            {
-                "name": "象形图",
-                "children": [
-                    {
-                        "type": "pictorialBar",
-                        "name": "象形柱图"
-                    },
-                    {
-                        "type": "v_pictorialBar",
-                        "name": "横向象形图"
-                    }
-                ]
-            },
-            {
-                "name": "旭日图",
-                "children": [
-                    {
-                        "type": "sunburst",
-                        "name": "旭日图"
-                    }
-                ]
-            },
-            {
-                "name": "日历热力图",
-                "children": [
-                    {
-                        "type": "calendar",
-                        "name": "日历热力图"
-                    }
-                ]
-            },
-            {
-                "name": "箱线图",
-                "children": [
-                    {
-                        "type": "boxplot",
-                        "name": "箱线图"
-                    }
-                ]
-            },
-            {
-                "name": "仪表盘",
-                "children": [
-                    {
-                        "type": "gauge",
-                        "name": "仪表盘"
-                    },
-                    {
-                        "type": "s_gauge",
-                        "name": "多系列仪表盘"
-                    }
-                ]
-            },
-            {
-                "name": "关系图",
-                "children": [
-                    {
-                        "type": "graph",
-                        "name": "关系图"
-                    },
-                    {
-                        "type": "sankey",
-                        "name": "桑基图"
-                    },
-                    {
-                        "type": "f_graph",
-                        "name": "力引导图"
-                    },
-                    {
-                        "type": "tree",
-                        "name": "树图"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "type": "threeDimensional",
-        "name": "三维图",
-        "icon": "edit_super_three_dimensional",
-        "children": [
-            {
-                "name": "3D曲面图",
-                "children": [
-                    {
-                        "type": "surface",
-                        "name": "3D曲面图"
-                    }
-                ]
-            },
-            {
-                "name": "簇状柱形图",
-                "children": [
-                    {
-                        "type": "Column3D",
-                        "name": "簇状柱形图"
-                    },
-                    {
-                        "type": "ColumnStacked3D",
-                        "name": "堆叠簇状柱形图"
-                    },
-                    {
-                        "type": "ColumnMulti3D",
-                        "name": "多系列簇状柱形图"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "type": "dynamic",
-        "name": "动态图",
-        "icon": "edit_super_dynamic",
-        "children": [
-            {
-                "name": "飞线图",
-                "children": [    
-                    {
-                        "type": "flight",
-                        "name": "航线图"
-                    },
-                    {
-                        "type": "kpi",
-                        "name": "KPI"
-                    },
-                    {
-                        "type": "valueGroup",
-                        "name": "指标组"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "type": "map",
-        "name": "地图",
-        "icon": "edit_super_map",
-        "children": [
-            {
-                "name": "矢量地图",
-                "children": [
-                    {
-                        "type": "vectormap",
-                        "name": "矢量地图"
-                    },
-                    {
-                        "type": "geo",
-                        "name": "地理图"
-                    },
-                    {
-                        "type": "flight",
-                        "name": "航线图"
-                    }
-                ]
-            },
-            {
-                "name": "地理图",
-                "children": [
-                    {
-                        "type": "geo",
-                        "name": "地理图"
-                    }
-                ]
-            }
-        ]
-    }
+     {
+         "type": "boxplot",
+         "name": "箱线图"
+     },
+
+     {
+         "type": "gauge",
+         "name": "仪表盘"
+     },
+     {
+         "type": "s_gauge",
+         "name": "多系列仪表盘"
+     },
+     {
+         "type": "graph",
+         "name": "关系图"
+     },
+     {
+         "type": "sankey",
+         "name": "桑基图"
+     },
+     {
+         "type": "f_graph",
+         "name": "力引导图"
+     },
+     {
+         "type": "tree",
+         "name": "树图"
+     },
+     {
+         "type": "surface",
+         "name": "3D曲面图"
+     },
+
+     {
+         "type": "Column3D",
+         "name": "簇状柱形图"
+     },
+     {
+         "type": "ColumnStacked3D",
+         "name": "堆叠簇状柱形图"
+     },
+     {
+         "type": "ColumnMulti3D",
+         "name": "多系列簇状柱形图"
+     },
+     {
+         "type": "flight",
+         "name": "航线图"
+     },
+     {
+         "type": "kpi",
+         "name": "KPI"
+     },
+     {
+         "type": "valueGroup",
+         "name": "指标组"
+     }
  ]
