@@ -1,13 +1,11 @@
 
-E:\front\lite-cli>cd E:\worker\client\insight-bi 
-
-E:\worker\client\insight-bi>npm run build:prod 
+E:\worker\client\insight-bi>cd E:\worker\client\insight-bi 
 
 > scene-lite@0.1.0 build:prod E:\worker\client\insight-bi
 > vue-cli-service build
 
 
- WARNING  Compiled with 32 warnings6:21:23 ├F10: PM┤
+ WARNING  Compiled with 32 warnings10:08:30 ├F10: AM┤
 
  warning  in ./src/graph/processing/datepick.js
 
@@ -16,40 +14,40 @@ E:\worker\client\insight-bi>npm run build:prod
  warning  in ./src/graph/processing/datepick.js
 
 "export 'default' (imported as 'boardUtils') was not found in '@/graph/utils'
-
- warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
 
  warning  in ./src/graph/domChart/condition.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
 
 "export 'default' (imported as 'utils') was not found in '@/utils'
 
@@ -352,4 +350,174 @@ Entrypoints:
  DONE  Build complete. The dist directory is ready to be deployed.
  INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
       
+Exit Code = 0
+E:\worker\client\insight-bi\dist\78f7a32e7bfe339e1aa2.worker.js
+E:\worker\client\insight-bi\dist\f2783d1ff5bf90fb933e.worker.js
+E:\worker\client\insight-bi\dist\favicon.ico
+E:\worker\client\insight-bi\dist\index.html
+E:\worker\client\insight-bi\dist\editor\langs\zh_CN.js
+E:\worker\client\insight-bi\dist\editor\skins\content\tinymce-lite.css
+E:\worker\client\insight-bi\dist\editor\skins\content\dark\content.css
+E:\worker\client\insight-bi\dist\editor\skins\content\dark\content.min.css
+E:\worker\client\insight-bi\dist\editor\skins\content\default\content.css
+E:\worker\client\insight-bi\dist\editor\skins\content\default\content.min.css
+E:\worker\client\insight-bi\dist\editor\skins\content\document\content.css
+E:\worker\client\insight-bi\dist\editor\skins\content\document\content.min.css
+E:\worker\client\insight-bi\dist\editor\skins\content\extend\dreamfont.css
+E:\worker\client\insight-bi\dist\editor\skins\content\extend\UnidreamLED.ttf
+E:\worker\client\insight-bi\dist\editor\skins\content\writer\content.css
+E:\worker\client\insight-bi\dist\editor\skins\content\writer\content.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.inline.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.inline.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.mobile.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.mobile.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\skin.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\skin.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\skin.mobile.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\skin.mobile.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\fonts\tinymce-mobile.woff
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.inline.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.inline.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.mobile.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.mobile.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\skin.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\skin.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\skin.mobile.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\skin.mobile.min.css
+E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\fonts\tinymce-mobile.woff
+E:\worker\client\insight-bi\dist\static\css\app.ba9b9d36.css
+E:\worker\client\insight-bi\dist\static\css\chunk-0de0ac47.53eef6c3.css
+E:\worker\client\insight-bi\dist\static\css\chunk-0ebf5382.16f8f5ca.css
+E:\worker\client\insight-bi\dist\static\css\chunk-15ec8cfe.e4c09160.css
+E:\worker\client\insight-bi\dist\static\css\chunk-16759055.4af303cf.css
+E:\worker\client\insight-bi\dist\static\css\chunk-23ef6185.dc4125f7.css
+E:\worker\client\insight-bi\dist\static\css\chunk-333243be.534b9771.css
+E:\worker\client\insight-bi\dist\static\css\chunk-3c36363d.5c055f73.css
+E:\worker\client\insight-bi\dist\static\css\chunk-4e27cfbc.fd231c17.css
+E:\worker\client\insight-bi\dist\static\css\chunk-51b75946.56d94e05.css
+E:\worker\client\insight-bi\dist\static\css\chunk-5818e6d4.3b8b9f4b.css
+E:\worker\client\insight-bi\dist\static\css\chunk-5d0f2eb0.196b312b.css
+E:\worker\client\insight-bi\dist\static\css\chunk-604cad60.0e5a7bc6.css
+E:\worker\client\insight-bi\dist\static\css\chunk-61904fa2.f057c649.css
+E:\worker\client\insight-bi\dist\static\css\chunk-6c0be122.414fd17e.css
+E:\worker\client\insight-bi\dist\static\css\chunk-7a13deaf.d32faec2.css
+E:\worker\client\insight-bi\dist\static\css\chunk-7b13a56b.4b519945.css
+E:\worker\client\insight-bi\dist\static\css\chunk-8211a022.b47819ac.css
+E:\worker\client\insight-bi\dist\static\css\chunk-933585f0.1c6eb63e.css
+E:\worker\client\insight-bi\dist\static\css\chunk-9dd2722c.cfc1739e.css
+E:\worker\client\insight-bi\dist\static\css\chunk-a209ef92.97c6e1d9.css
+E:\worker\client\insight-bi\dist\static\css\chunk-ba5f4886.12b15b86.css
+E:\worker\client\insight-bi\dist\static\css\chunk-cec8e002.96e11153.css
+E:\worker\client\insight-bi\dist\static\css\chunk-d49bed12.74a218d7.css
+E:\worker\client\insight-bi\dist\static\css\chunk-e70a33bc.5e02f0e4.css
+E:\worker\client\insight-bi\dist\static\css\chunk-e756a6b2.23a1fb33.css
+E:\worker\client\insight-bi\dist\static\css\chunk-f23c7aaa.958f7a60.css
+E:\worker\client\insight-bi\dist\static\css\chunk-fbd8cfdc.05f53dec.css
+E:\worker\client\insight-bi\dist\static\fonts\element-icons.535877f5.woff
+E:\worker\client\insight-bi\dist\static\fonts\element-icons.732389de.ttf
+E:\worker\client\insight-bi\dist\static\fonts\MaterialIcons-Regular.012cf6a1.woff
+E:\worker\client\insight-bi\dist\static\fonts\MaterialIcons-Regular.570eb838.woff2
+E:\worker\client\insight-bi\dist\static\fonts\MaterialIcons-Regular.a37b0c01.ttf
+E:\worker\client\insight-bi\dist\static\fonts\MaterialIcons-Regular.e79bfd88.eot
+E:\worker\client\insight-bi\dist\static\fonts\UnidreamLED.12fc1608.ttf
+E:\worker\client\insight-bi\dist\static\img\401.089007e7.gif
+E:\worker\client\insight-bi\dist\static\img\404.5f76e018.png
+E:\worker\client\insight-bi\dist\static\img\Abc_blue.cb9d0b2d.svg
+E:\worker\client\insight-bi\dist\static\img\Abc_green.bcf1d6d1.svg
+E:\worker\client\insight-bi\dist\static\img\Abc_normal.8020a0d3.svg
+E:\worker\client\insight-bi\dist\static\img\Abc_orange.e2170bb1.svg
+E:\worker\client\insight-bi\dist\static\img\Abc_purple.ed7eac6b.svg
+E:\worker\client\insight-bi\dist\static\img\archive_cover.aae6333b.png
+E:\worker\client\insight-bi\dist\static\img\arrow_bottom.f131f91d.svg
+E:\worker\client\insight-bi\dist\static\img\arrow_top.92ead5b7.svg
+E:\worker\client\insight-bi\dist\static\img\dashboard_cover.d19e7a09.png
+E:\worker\client\insight-bi\dist\static\img\datetime_blue.948b17ae.svg
+E:\worker\client\insight-bi\dist\static\img\datetime_green.2a6ed69b.svg
+E:\worker\client\insight-bi\dist\static\img\datetime_normal.447043fc.svg
+E:\worker\client\insight-bi\dist\static\img\datetime_orange.6b6d9602.svg
+E:\worker\client\insight-bi\dist\static\img\datetime_purple.5eebb4ee.svg
+E:\worker\client\insight-bi\dist\static\img\date_blue.60329d20.svg
+E:\worker\client\insight-bi\dist\static\img\date_green.4793909b.svg
+E:\worker\client\insight-bi\dist\static\img\date_normal.dbe14349.svg
+E:\worker\client\insight-bi\dist\static\img\date_orange.4a1342a3.svg
+E:\worker\client\insight-bi\dist\static\img\date_purple.6c6b27e6.svg
+E:\worker\client\insight-bi\dist\static\img\demo.48d86b67.png
+E:\worker\client\insight-bi\dist\static\img\dimension_blue.8abd2807.svg
+E:\worker\client\insight-bi\dist\static\img\dimension_green.fa38bda3.svg
+E:\worker\client\insight-bi\dist\static\img\dimension_normal.1580bab8.svg
+E:\worker\client\insight-bi\dist\static\img\dimension_orange.493d6b83.svg
+E:\worker\client\insight-bi\dist\static\img\dimension_purple.f2a12c6a.svg
+E:\worker\client\insight-bi\dist\static\img\drag-in.be42a41b.png
+E:\worker\client\insight-bi\dist\static\img\editor.67694553.png
+E:\worker\client\insight-bi\dist\static\img\editor_disabled.35d1f4f3.png
+E:\worker\client\insight-bi\dist\static\img\fact_blue.29fd0b93.svg
+E:\worker\client\insight-bi\dist\static\img\fact_green.0cfdc770.svg
+E:\worker\client\insight-bi\dist\static\img\fact_normal.7e878149.svg
+E:\worker\client\insight-bi\dist\static\img\fact_orange.d43f9354.svg
+E:\worker\client\insight-bi\dist\static\img\fact_purple.e18ab36d.svg
+E:\worker\client\insight-bi\dist\static\img\fly.44ef2be3.png
+E:\worker\client\insight-bi\dist\static\img\function_blue.cb952002.svg
+E:\worker\client\insight-bi\dist\static\img\function_green.d9a1e779.svg
+E:\worker\client\insight-bi\dist\static\img\function_normal.41450403.svg
+E:\worker\client\insight-bi\dist\static\img\function_orange.5f8243d9.svg
+E:\worker\client\insight-bi\dist\static\img\function_purple.64ab62e5.svg
+E:\worker\client\insight-bi\dist\static\img\iconfont.6ae01e66.svg
+E:\worker\client\insight-bi\dist\static\img\join_error.f84876f5.svg
+E:\worker\client\insight-bi\dist\static\img\join_type.4b21c696.png
+E:\worker\client\insight-bi\dist\static\img\login_bg.8964d770.png
+E:\worker\client\insight-bi\dist\static\img\logo.a91fa25b.png
+E:\worker\client\insight-bi\dist\static\img\media.6845ed7b.png
+E:\worker\client\insight-bi\dist\static\img\number_blue.452c250d.svg
+E:\worker\client\insight-bi\dist\static\img\number_green.3ae3ddb5.svg
+E:\worker\client\insight-bi\dist\static\img\number_normal.12cfac43.svg
+E:\worker\client\insight-bi\dist\static\img\number_orange.194d0e70.svg
+E:\worker\client\insight-bi\dist\static\img\number_purple.d3ab6d64.svg
+E:\worker\client\insight-bi\dist\static\img\table.714506c4.svg
+E:\worker\client\insight-bi\dist\static\img\table_blue.7fbb3727.svg
+E:\worker\client\insight-bi\dist\static\img\table_green.340ad40f.svg
+E:\worker\client\insight-bi\dist\static\img\table_normal.108a347e.svg
+E:\worker\client\insight-bi\dist\static\img\table_orange.a7222062.svg
+E:\worker\client\insight-bi\dist\static\img\table_purple.bc40dd6e.svg
+E:\worker\client\insight-bi\dist\static\js\app.baec845f.js
+E:\worker\client\insight-bi\dist\static\js\chunk-0de0ac47.64835b5c.js
+E:\worker\client\insight-bi\dist\static\js\chunk-0ebf5382.0d676f36.js
+E:\worker\client\insight-bi\dist\static\js\chunk-15ec8cfe.ad55ee25.js
+E:\worker\client\insight-bi\dist\static\js\chunk-16759055.62223cb0.js
+E:\worker\client\insight-bi\dist\static\js\chunk-170f72c3.73244741.js
+E:\worker\client\insight-bi\dist\static\js\chunk-23ef6185.7ba28d17.js
+E:\worker\client\insight-bi\dist\static\js\chunk-2d0ddb63.6e7ecec2.js
+E:\worker\client\insight-bi\dist\static\js\chunk-2d2105d3.51207f2c.js
+E:\worker\client\insight-bi\dist\static\js\chunk-2d21085a.09f20bab.js
+E:\worker\client\insight-bi\dist\static\js\chunk-2d230fe7.e7e4a023.js
+E:\worker\client\insight-bi\dist\static\js\chunk-333243be.d5bda99d.js
+E:\worker\client\insight-bi\dist\static\js\chunk-39a885e2.293c0820.js
+E:\worker\client\insight-bi\dist\static\js\chunk-3c36363d.b5645d55.js
+E:\worker\client\insight-bi\dist\static\js\chunk-4e27cfbc.9f89706a.js
+E:\worker\client\insight-bi\dist\static\js\chunk-51b75946.93b63ec5.js
+E:\worker\client\insight-bi\dist\static\js\chunk-54a80722.c7ed6f08.js
+E:\worker\client\insight-bi\dist\static\js\chunk-5818e6d4.f2d45e3f.js
+E:\worker\client\insight-bi\dist\static\js\chunk-5d0f2eb0.be6d358e.js
+E:\worker\client\insight-bi\dist\static\js\chunk-604cad60.5e7f3137.js
+E:\worker\client\insight-bi\dist\static\js\chunk-6114e0a1.1c6e31f9.js
+E:\worker\client\insight-bi\dist\static\js\chunk-61904fa2.bea48242.js
+E:\worker\client\insight-bi\dist\static\js\chunk-6c0be122.77f9f392.js
+E:\worker\client\insight-bi\dist\static\js\chunk-7a13deaf.b0a7cd0b.js
+E:\worker\client\insight-bi\dist\static\js\chunk-7b13a56b.fb4bf071.js
+E:\worker\client\insight-bi\dist\static\js\chunk-8211a022.f1ecd751.js
+E:\worker\client\insight-bi\dist\static\js\chunk-933585f0.41c46653.js
+E:\worker\client\insight-bi\dist\static\js\chunk-9dd2722c.68369eb4.js
+E:\worker\client\insight-bi\dist\static\js\chunk-a209ef92.2196a677.js
+E:\worker\client\insight-bi\dist\static\js\chunk-b0c9950e.ee871961.js
+E:\worker\client\insight-bi\dist\static\js\chunk-ba5f4886.ce26848f.js
+E:\worker\client\insight-bi\dist\static\js\chunk-cec8e002.08563bbc.js
+E:\worker\client\insight-bi\dist\static\js\chunk-d49bed12.9ecee903.js
+E:\worker\client\insight-bi\dist\static\js\chunk-e70a33bc.9a81b705.js
+E:\worker\client\insight-bi\dist\static\js\chunk-e756a6b2.228873c0.js
+E:\worker\client\insight-bi\dist\static\js\chunk-f23c7aaa.a4ea20e5.js
+E:\worker\client\insight-bi\dist\static\js\chunk-fbd8cfdc.15e3c961.js
+������ 168 ���ļ�
 子进程退出，退出码 0子进程关闭，退出码 0

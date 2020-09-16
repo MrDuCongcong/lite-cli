@@ -4,7 +4,7 @@
         "projectId": "f119e507-a042-4b97-9f08-fd1150aeb290",
         "description": "",
         "path": "",
-        "cmdSet": "\ncd E:\\worker\\client\\insight-bi\nnpm run build:prod\n\nxcopy /E  E:\\worker\\client\\insight-bi\\dist  F:/",
+        "cmdSet": "cd E:\\worker\\client\\insight-bi\n@echo off\ncall npm run build:prod\necho Exit Code = %ERRORLEVEL%\nif \"%ERRORLEVEL%\" == \"1\" exit /B 1\nxcopy /E  E:\\worker\\client\\insight-bi\\dist  F:/",
         "moduleChoice": false,
         "createDate": "2020-09-15 17:09:84"
     },
