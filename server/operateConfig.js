@@ -119,7 +119,13 @@ const addProject = function(moduleBaseDir, projectConfigPath, project, callback)
 };
 
 const setModuleForProject = function(moduleBaseDir, projectId, modules, callback) {
-    fs.writeFile(`${moduleBaseDir}/${projectId}.json`, JSON.stringify(modules, null, 4), (err) => {
+    // 过滤掉非模块节点
+    const reg = /^(\d+)(\-|\d)+\d$/;
+    const useableModules = modules.filter((item) => {
+        return !reg.test(item);
+    });
+
+    fs.writeFile(`${moduleBaseDir}/${projectId}.json`, JSON.stringify(useableModules, null, 4), (err) => {
         if (err) {
             callback(false);
             throw new Error(err);
@@ -141,7 +147,7 @@ const deleteProjectById = function(projectId, projectConfigPath, logDir, moduleB
     const tempProjectList = fs.readFileSync(projectConfigPath);
     let projectList = JSON.parse(tempProjectList.toString());
     const findIndex = projectList.findIndex((item) => {
-        return (item.projectId = projectId);
+        return item.projectId === projectId;
     });
 
     projectList.splice(findIndex, 1);

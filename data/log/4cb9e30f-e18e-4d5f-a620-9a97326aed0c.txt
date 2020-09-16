@@ -1,0 +1,8 @@
+
+E:\front\lite-cli>cd /d E:\worker\client\insight-bi 
+
+> scene-lite@0.1.0 build:prod E:\worker\client\insight-bi
+> vue-cli-service build
+
+
+子进程退出，退出码 null子进程关闭，退出码 null

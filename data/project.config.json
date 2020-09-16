@@ -1,20 +1,11 @@
 [
     {
         "projectName": "insight-bi",
-        "projectId": "f119e507-a042-4b97-9f08-fd1150aeb290",
+        "projectId": "4cb9e30f-e18e-4d5f-a620-9a97326aed0c",
         "description": "",
-        "path": "",
-        "cmdSet": "cd E:\\worker\\client\\insight-bi\n@echo off\ncall npm run build:prod\necho Exit Code = %ERRORLEVEL%\nif \"%ERRORLEVEL%\" == \"1\" exit /B 1\nxcopy /E  E:\\worker\\client\\insight-bi\\dist  F:/",
-        "moduleChoice": false,
-        "createDate": "2020-09-15 17:09:84"
-    },
-    {
-        "projectName": "测试项目二",
-        "projectId": "31eaf7d4-da62-4c84-93a9-2dbaa663c8cf",
-        "description": "",
-        "path": "",
-        "cmdSet": "cd E:\\worker\\client\\insight-bi\nnpm run dev",
-        "moduleChoice": false,
-        "createDate": "2020-09-15 18:09:26"
+        "path": "E:\\worker\\client\\insight-bi",
+        "cmdSet": "@echo off\ncall npm run build:prod\necho Exit Code = %ERRORLEVEL%\nif \"%ERRORLEVEL%\" == \"1\" exit /B 1\nxcopy /E  E:\\worker\\client\\insight-bi\\dist  F:/",
+        "moduleChoice": true,
+        "createDate": "2020-09-16 15:09:50"
     }
 ]

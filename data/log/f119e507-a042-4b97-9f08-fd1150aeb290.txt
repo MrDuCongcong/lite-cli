@@ -1,11 +1,11 @@
 
-E:\worker\client\insight-bi>cd E:\worker\client\insight-bi 
+E:\front\lite-cli>cd E:\worker\client\insight-bi 
 
 > scene-lite@0.1.0 build:prod E:\worker\client\insight-bi
 > vue-cli-service build
 
-
- WARNING  Compiled with 32 warnings10:08:30 ├F10: AM┤
+子进程退出，退出码 null
+ WARNING  Compiled with 32 warnings2:54:14 ├F10: PM┤
 
  warning  in ./src/graph/processing/datepick.js
 
@@ -19,26 +19,6 @@ E:\worker\client\insight-bi>cd E:\worker\client\insight-bi
 
 "export 'default' (imported as 'utils') was not found in '@/utils'
 
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
- warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
-
-"export 'default' (imported as 'utils') was not found in '@/utils'
-
  warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
 
 "export 'default' (imported as 'utils') was not found in '@/utils'
@@ -48,6 +28,26 @@ E:\worker\client\insight-bi>cd E:\worker\client\insight-bi
 "export 'default' (imported as 'utils') was not found in '@/utils'
 
  warning  in ./src/views/edit/optionsComponents/widgetInteractParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
+
+"export 'default' (imported as 'utils') was not found in '@/utils'
+
+ warning  in ./src/views/edit/optionsComponents/interactParams.vue?vue&type=script&lang=js&
 
 "export 'default' (imported as 'utils') was not found in '@/utils'
 
@@ -133,112 +133,112 @@ asset size limit: The following asset(s) exceed the recommended size limit (244 
 This can impact web performance.
 Assets: 
   static/css/app.ba9b9d36.css (522 KiB)
-  static/js/app.baec845f.js (3.44 MiB)
-  static/css/chunk-16759055.4af303cf.css (303 KiB)
-  static/js/chunk-16759055.62223cb0.js (5.69 MiB)
+  static/js/app.a912d58e.js (3.47 MiB)
+  static/css/chunk-0996507e.1418e403.css (304 KiB)
+  static/js/chunk-0996507e.c9d9f30e.js (5.73 MiB)
+  static/js/chunk-150be40f.9eb306ac.js (378 KiB)
   static/js/chunk-170f72c3.73244741.js (1.17 MiB)
-  static/js/chunk-4e27cfbc.9f89706a.js (1.16 MiB)
-  static/js/chunk-5818e6d4.f2d45e3f.js (1.95 MiB)
+  static/js/chunk-21c9ab06.f6665082.js (1.16 MiB)
+  static/js/chunk-40bae300.1f5da80c.js (2.25 MiB)
   static/js/chunk-6114e0a1.1c6e31f9.js (480 KiB)
-  static/js/chunk-9dd2722c.68369eb4.js (378 KiB)
-  static/js/chunk-a209ef92.2196a677.js (834 KiB)
-  static/js/chunk-ba5f4886.ce26848f.js (2.22 MiB)
+  static/js/chunk-7e0277fe.22487512.js (1.96 MiB)
+  static/js/chunk-f795a74a.133f6ffd.js (858 KiB)
 
  warning  
 
 entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
 Entrypoints:
-  app (3.95 MiB)
+  app (3.98 MiB)
       static/css/app.ba9b9d36.css
-      static/js/app.baec845f.js
+      static/js/app.a912d58e.js
 
 
   File                                      Size             Gzipped
 
-  dist\static\js\chunk-16759055.62223cb0    5830.36 KiB      1699.43 KiB
+  dist\static\js\chunk-0996507e.c9d9f30e    5862.86 KiB      1709.31 KiB
   .js
-  dist\static\js\app.baec845f.js            3521.45 KiB      1070.30 KiB
-  dist\static\js\chunk-ba5f4886.ce26848f    2277.60 KiB      661.45 KiB
+  dist\static\js\app.a912d58e.js            3557.09 KiB      1079.93 KiB
+  dist\static\js\chunk-40bae300.1f5da80c    2301.49 KiB      667.97 KiB
   .js
-  dist\static\js\chunk-5818e6d4.f2d45e3f    1999.77 KiB      582.04 KiB
+  dist\static\js\chunk-7e0277fe.22487512    2008.30 KiB      584.62 KiB
   .js
   dist\static\js\chunk-170f72c3.73244741    1193.97 KiB      299.00 KiB
   .js
-  dist\static\js\chunk-4e27cfbc.9f89706a    1185.90 KiB      355.00 KiB
+  dist\static\js\chunk-21c9ab06.f6665082    1186.57 KiB      355.22 KiB
   .js
-  dist\static\js\chunk-a209ef92.2196a677    833.73 KiB       230.28 KiB
+  dist\static\js\chunk-f795a74a.133f6ffd    857.88 KiB       237.00 KiB
   .js
   dist\static\js\chunk-6114e0a1.1c6e31f9    479.88 KiB       153.00 KiB
   .js
-  dist\static\js\chunk-9dd2722c.68369eb4    377.60 KiB       94.24 KiB
+  dist\static\js\chunk-150be40f.9eb306ac    377.75 KiB       94.21 KiB
   .js
   dist\static\js\chunk-54a80722.c7ed6f08    147.13 KiB       40.43 KiB
   .js
-  dist\static\js\chunk-3c36363d.b5645d55    40.95 KiB        10.53 KiB
+  dist\static\js\chunk-933585f0.f1fc9a53    40.41 KiB        11.92 KiB
   .js
-  dist\static\js\chunk-933585f0.41c46653    40.37 KiB        11.90 KiB
+  dist\static\js\chunk-72d95b5b.50cff610    40.40 KiB        10.43 KiB
   .js
-  dist\static\js\chunk-e756a6b2.228873c0    33.41 KiB        9.43 KiB
+  dist\static\js\chunk-13606e25.a15b0e45    33.39 KiB        9.30 KiB
   .js
   dist\static\js\chunk-2d0ddb63.6e7ecec2    32.13 KiB        11.29 KiB
   .js
-  dist\static\js\chunk-5d0f2eb0.be6d358e    23.21 KiB        6.41 KiB
+  dist\static\js\chunk-5d0f2eb0.e1ee384f    23.21 KiB        6.41 KiB
   .js
-  dist\static\js\chunk-23ef6185.7ba28d17    18.15 KiB        5.14 KiB
+  dist\static\js\chunk-23ef6185.81d59b5f    18.15 KiB        5.14 KiB
   .js
   dist\static\js\chunk-2d21085a.09f20bab    17.89 KiB        5.22 KiB
   .js
   dist\static\js\chunk-b0c9950e.ee871961    16.10 KiB        5.30 KiB
   .js
-  dist\static\js\chunk-51b75946.93b63ec5    16.03 KiB        5.42 KiB
+  dist\static\js\chunk-51b75946.0ce87a43    16.03 KiB        5.42 KiB
   .js
-  dist\static\js\chunk-6c0be122.77f9f392    14.03 KiB        4.30 KiB
+  dist\static\js\chunk-6c0be122.3e77e143    14.03 KiB        4.30 KiB
   .js
   dist\editor\langs\zh_CN.js                13.10 KiB        5.85 KiB
-  dist\static\js\chunk-e70a33bc.9a81b705    12.26 KiB        3.89 KiB
+  dist\static\js\chunk-3117894a.71f74f45    12.27 KiB        3.89 KiB
   .js
   dist\f2783d1ff5bf90fb933e.worker.js       11.51 KiB        4.26 KiB
-  dist\static\js\chunk-604cad60.5e7f3137    10.18 KiB        3.59 KiB
+  dist\static\js\chunk-604cad60.d9608b9d    10.22 KiB        3.61 KiB
   .js
-  dist\static\js\chunk-f23c7aaa.a4ea20e5    9.28 KiB         3.20 KiB
+  dist\static\js\chunk-f23c7aaa.701e242c    9.28 KiB         3.20 KiB
   .js
-  dist\static\js\chunk-fbd8cfdc.15e3c961    7.79 KiB         2.52 KiB
+  dist\static\js\chunk-fbd8cfdc.3f906507    7.79 KiB         2.52 KiB
   .js
-  dist\static\js\chunk-0de0ac47.64835b5c    6.32 KiB         2.49 KiB
+  dist\static\js\chunk-0de0ac47.500706bb    6.32 KiB         2.49 KiB
   .js
-  dist\static\js\chunk-15ec8cfe.ad55ee25    5.84 KiB         1.74 KiB
+  dist\static\js\chunk-15ec8cfe.794d1ee0    5.84 KiB         1.74 KiB
   .js
   dist\static\js\chunk-39a885e2.293c0820    5.33 KiB         2.37 KiB
   .js
-  dist\static\js\chunk-cec8e002.08563bbc    4.37 KiB         2.65 KiB
+  dist\static\js\chunk-cec8e002.fdc1da3a    4.37 KiB         2.65 KiB
   .js
-  dist\static\js\chunk-d49bed12.9ecee903    2.81 KiB         1.05 KiB
+  dist\static\js\chunk-d49bed12.81db4ed2    2.81 KiB         1.05 KiB
   .js
-  dist\static\js\chunk-0ebf5382.0d676f36    1.89 KiB         1.03 KiB
+  dist\static\js\chunk-0ebf5382.2718026f    1.89 KiB         1.03 KiB
   .js
-  dist\static\js\chunk-7b13a56b.fb4bf071    1.19 KiB         0.61 KiB
+  dist\static\js\chunk-7b13a56b.b57bf9a4    1.19 KiB         0.61 KiB
   .js
   dist\78f7a32e7bfe339e1aa2.worker.js       0.97 KiB         0.48 KiB
-  dist\static\js\chunk-61904fa2.bea48242    0.77 KiB         0.44 KiB
+  dist\static\js\chunk-61904fa2.70ce38bc    0.77 KiB         0.44 KiB
   .js
-  dist\static\js\chunk-8211a022.f1ecd751    0.58 KiB         0.36 KiB
+  dist\static\js\chunk-8211a022.5892bbd5    0.58 KiB         0.36 KiB
   .js
-  dist\static\js\chunk-7a13deaf.b0a7cd0b    0.58 KiB         0.36 KiB
+  dist\static\js\chunk-7a13deaf.dad6df59    0.58 KiB         0.36 KiB
   .js
-  dist\static\js\chunk-333243be.d5bda99d    0.53 KiB         0.37 KiB
+  dist\static\js\chunk-333243be.229e2c2f    0.53 KiB         0.37 KiB
   .js
   dist\static\js\chunk-2d2105d3.51207f2c    0.42 KiB         0.30 KiB
   .js
   dist\static\js\chunk-2d230fe7.e7e4a023    0.36 KiB         0.26 KiB
   .js
   dist\static\css\app.ba9b9d36.css          521.61 KiB       70.63 KiB
-  dist\static\css\chunk-16759055.4af303c    303.40 KiB       53.44 KiB
-  f.css
-  dist\static\css\chunk-ba5f4886.12b15b8    136.37 KiB       27.89 KiB
-  6.css
-  dist\static\css\chunk-a209ef92.97c6e1d    112.42 KiB       24.14 KiB
-  9.css
-  dist\static\css\chunk-5818e6d4.3b8b9f4    86.38 KiB        15.71 KiB
+  dist\static\css\chunk-0996507e.1418e40    303.57 KiB       53.51 KiB
+  3.css
+  dist\static\css\chunk-40bae300.eb3afee    135.96 KiB       27.85 KiB
+  b.css
+  dist\static\css\chunk-f795a74a.4a44b7e    112.02 KiB       24.11 KiB
+  8.css
+  dist\static\css\chunk-7e0277fe.3b8b9f4    86.38 KiB        15.71 KiB
   b.css
   dist\editor\skins\ui\oxide\skin.css       65.79 KiB        10.04 KiB
   dist\editor\skins\ui\oxide-dark\skin.c    65.65 KiB        10.06 KiB
@@ -247,8 +247,8 @@ Entrypoints:
   s
   dist\editor\skins\ui\oxide-dark\skin.m    55.11 KiB        9.30 KiB
   in.css
-  dist\static\css\chunk-4e27cfbc.fd231c1    45.75 KiB        6.45 KiB
-  7.css
+  dist\static\css\chunk-21c9ab06.0f9162d    45.75 KiB        6.45 KiB
+  e.css
   dist\editor\skins\ui\oxide-dark\skin.m    24.04 KiB        3.66 KiB
   obile.css
   dist\editor\skins\ui\oxide\skin.mobile    24.04 KiB        3.66 KiB
@@ -272,21 +272,21 @@ Entrypoints:
   ine.min.css
   dist\editor\skins\ui\oxide-dark\conten    17.39 KiB        4.75 KiB
   t.min.css
-  dist\static\css\chunk-3c36363d.5c055f7    13.36 KiB        2.59 KiB
-  3.css
+  dist\static\css\chunk-72d95b5b.b14ca34    13.36 KiB        2.59 KiB
+  2.css
   dist\static\css\chunk-5d0f2eb0.196b312    8.51 KiB         1.68 KiB
   b.css
   dist\static\css\chunk-7b13a56b.4b51994    7.71 KiB         1.23 KiB
   5.css
   dist\static\css\chunk-933585f0.1c6eb63    6.26 KiB         1.42 KiB
   e.css
-  dist\static\css\chunk-e756a6b2.23a1fb3    6.20 KiB         1.55 KiB
-  3.css
+  dist\static\css\chunk-13606e25.91d61a6    6.20 KiB         1.55 KiB
+  1.css
   dist\static\css\chunk-23ef6185.dc4125f    4.83 KiB         1.10 KiB
   7.css
   dist\static\css\chunk-cec8e002.96e1115    4.64 KiB         0.83 KiB
   3.css
-  dist\static\css\chunk-9dd2722c.cfc1739    4.09 KiB         1.20 KiB
+  dist\static\css\chunk-150be40f.cfc1739    4.09 KiB         1.20 KiB
   e.css
   dist\static\css\chunk-15ec8cfe.e4c0916    3.06 KiB         0.71 KiB
   0.css
@@ -294,8 +294,8 @@ Entrypoints:
   0.css
   dist\static\css\chunk-51b75946.56d94e0    2.22 KiB         0.62 KiB
   5.css
-  dist\static\css\chunk-e70a33bc.5e02f0e    1.75 KiB         0.56 KiB
-  4.css
+  dist\static\css\chunk-3117894a.d40126d    1.75 KiB         0.56 KiB
+  b.css
   dist\static\css\chunk-d49bed12.74a218d    1.69 KiB         0.54 KiB
   7.css
   dist\static\css\chunk-0de0ac47.53eef6c    1.67 KiB         0.65 KiB
@@ -350,174 +350,4 @@ Entrypoints:
  DONE  Build complete. The dist directory is ready to be deployed.
  INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
       
-Exit Code = 0
-E:\worker\client\insight-bi\dist\78f7a32e7bfe339e1aa2.worker.js
-E:\worker\client\insight-bi\dist\f2783d1ff5bf90fb933e.worker.js
-E:\worker\client\insight-bi\dist\favicon.ico
-E:\worker\client\insight-bi\dist\index.html
-E:\worker\client\insight-bi\dist\editor\langs\zh_CN.js
-E:\worker\client\insight-bi\dist\editor\skins\content\tinymce-lite.css
-E:\worker\client\insight-bi\dist\editor\skins\content\dark\content.css
-E:\worker\client\insight-bi\dist\editor\skins\content\dark\content.min.css
-E:\worker\client\insight-bi\dist\editor\skins\content\default\content.css
-E:\worker\client\insight-bi\dist\editor\skins\content\default\content.min.css
-E:\worker\client\insight-bi\dist\editor\skins\content\document\content.css
-E:\worker\client\insight-bi\dist\editor\skins\content\document\content.min.css
-E:\worker\client\insight-bi\dist\editor\skins\content\extend\dreamfont.css
-E:\worker\client\insight-bi\dist\editor\skins\content\extend\UnidreamLED.ttf
-E:\worker\client\insight-bi\dist\editor\skins\content\writer\content.css
-E:\worker\client\insight-bi\dist\editor\skins\content\writer\content.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.inline.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.inline.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.mobile.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\content.mobile.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\skin.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\skin.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\skin.mobile.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\skin.mobile.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide\fonts\tinymce-mobile.woff
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.inline.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.inline.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.mobile.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\content.mobile.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\skin.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\skin.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\skin.mobile.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\skin.mobile.min.css
-E:\worker\client\insight-bi\dist\editor\skins\ui\oxide-dark\fonts\tinymce-mobile.woff
-E:\worker\client\insight-bi\dist\static\css\app.ba9b9d36.css
-E:\worker\client\insight-bi\dist\static\css\chunk-0de0ac47.53eef6c3.css
-E:\worker\client\insight-bi\dist\static\css\chunk-0ebf5382.16f8f5ca.css
-E:\worker\client\insight-bi\dist\static\css\chunk-15ec8cfe.e4c09160.css
-E:\worker\client\insight-bi\dist\static\css\chunk-16759055.4af303cf.css
-E:\worker\client\insight-bi\dist\static\css\chunk-23ef6185.dc4125f7.css
-E:\worker\client\insight-bi\dist\static\css\chunk-333243be.534b9771.css
-E:\worker\client\insight-bi\dist\static\css\chunk-3c36363d.5c055f73.css
-E:\worker\client\insight-bi\dist\static\css\chunk-4e27cfbc.fd231c17.css
-E:\worker\client\insight-bi\dist\static\css\chunk-51b75946.56d94e05.css
-E:\worker\client\insight-bi\dist\static\css\chunk-5818e6d4.3b8b9f4b.css
-E:\worker\client\insight-bi\dist\static\css\chunk-5d0f2eb0.196b312b.css
-E:\worker\client\insight-bi\dist\static\css\chunk-604cad60.0e5a7bc6.css
-E:\worker\client\insight-bi\dist\static\css\chunk-61904fa2.f057c649.css
-E:\worker\client\insight-bi\dist\static\css\chunk-6c0be122.414fd17e.css
-E:\worker\client\insight-bi\dist\static\css\chunk-7a13deaf.d32faec2.css
-E:\worker\client\insight-bi\dist\static\css\chunk-7b13a56b.4b519945.css
-E:\worker\client\insight-bi\dist\static\css\chunk-8211a022.b47819ac.css
-E:\worker\client\insight-bi\dist\static\css\chunk-933585f0.1c6eb63e.css
-E:\worker\client\insight-bi\dist\static\css\chunk-9dd2722c.cfc1739e.css
-E:\worker\client\insight-bi\dist\static\css\chunk-a209ef92.97c6e1d9.css
-E:\worker\client\insight-bi\dist\static\css\chunk-ba5f4886.12b15b86.css
-E:\worker\client\insight-bi\dist\static\css\chunk-cec8e002.96e11153.css
-E:\worker\client\insight-bi\dist\static\css\chunk-d49bed12.74a218d7.css
-E:\worker\client\insight-bi\dist\static\css\chunk-e70a33bc.5e02f0e4.css
-E:\worker\client\insight-bi\dist\static\css\chunk-e756a6b2.23a1fb33.css
-E:\worker\client\insight-bi\dist\static\css\chunk-f23c7aaa.958f7a60.css
-E:\worker\client\insight-bi\dist\static\css\chunk-fbd8cfdc.05f53dec.css
-E:\worker\client\insight-bi\dist\static\fonts\element-icons.535877f5.woff
-E:\worker\client\insight-bi\dist\static\fonts\element-icons.732389de.ttf
-E:\worker\client\insight-bi\dist\static\fonts\MaterialIcons-Regular.012cf6a1.woff
-E:\worker\client\insight-bi\dist\static\fonts\MaterialIcons-Regular.570eb838.woff2
-E:\worker\client\insight-bi\dist\static\fonts\MaterialIcons-Regular.a37b0c01.ttf
-E:\worker\client\insight-bi\dist\static\fonts\MaterialIcons-Regular.e79bfd88.eot
-E:\worker\client\insight-bi\dist\static\fonts\UnidreamLED.12fc1608.ttf
-E:\worker\client\insight-bi\dist\static\img\401.089007e7.gif
-E:\worker\client\insight-bi\dist\static\img\404.5f76e018.png
-E:\worker\client\insight-bi\dist\static\img\Abc_blue.cb9d0b2d.svg
-E:\worker\client\insight-bi\dist\static\img\Abc_green.bcf1d6d1.svg
-E:\worker\client\insight-bi\dist\static\img\Abc_normal.8020a0d3.svg
-E:\worker\client\insight-bi\dist\static\img\Abc_orange.e2170bb1.svg
-E:\worker\client\insight-bi\dist\static\img\Abc_purple.ed7eac6b.svg
-E:\worker\client\insight-bi\dist\static\img\archive_cover.aae6333b.png
-E:\worker\client\insight-bi\dist\static\img\arrow_bottom.f131f91d.svg
-E:\worker\client\insight-bi\dist\static\img\arrow_top.92ead5b7.svg
-E:\worker\client\insight-bi\dist\static\img\dashboard_cover.d19e7a09.png
-E:\worker\client\insight-bi\dist\static\img\datetime_blue.948b17ae.svg
-E:\worker\client\insight-bi\dist\static\img\datetime_green.2a6ed69b.svg
-E:\worker\client\insight-bi\dist\static\img\datetime_normal.447043fc.svg
-E:\worker\client\insight-bi\dist\static\img\datetime_orange.6b6d9602.svg
-E:\worker\client\insight-bi\dist\static\img\datetime_purple.5eebb4ee.svg
-E:\worker\client\insight-bi\dist\static\img\date_blue.60329d20.svg
-E:\worker\client\insight-bi\dist\static\img\date_green.4793909b.svg
-E:\worker\client\insight-bi\dist\static\img\date_normal.dbe14349.svg
-E:\worker\client\insight-bi\dist\static\img\date_orange.4a1342a3.svg
-E:\worker\client\insight-bi\dist\static\img\date_purple.6c6b27e6.svg
-E:\worker\client\insight-bi\dist\static\img\demo.48d86b67.png
-E:\worker\client\insight-bi\dist\static\img\dimension_blue.8abd2807.svg
-E:\worker\client\insight-bi\dist\static\img\dimension_green.fa38bda3.svg
-E:\worker\client\insight-bi\dist\static\img\dimension_normal.1580bab8.svg
-E:\worker\client\insight-bi\dist\static\img\dimension_orange.493d6b83.svg
-E:\worker\client\insight-bi\dist\static\img\dimension_purple.f2a12c6a.svg
-E:\worker\client\insight-bi\dist\static\img\drag-in.be42a41b.png
-E:\worker\client\insight-bi\dist\static\img\editor.67694553.png
-E:\worker\client\insight-bi\dist\static\img\editor_disabled.35d1f4f3.png
-E:\worker\client\insight-bi\dist\static\img\fact_blue.29fd0b93.svg
-E:\worker\client\insight-bi\dist\static\img\fact_green.0cfdc770.svg
-E:\worker\client\insight-bi\dist\static\img\fact_normal.7e878149.svg
-E:\worker\client\insight-bi\dist\static\img\fact_orange.d43f9354.svg
-E:\worker\client\insight-bi\dist\static\img\fact_purple.e18ab36d.svg
-E:\worker\client\insight-bi\dist\static\img\fly.44ef2be3.png
-E:\worker\client\insight-bi\dist\static\img\function_blue.cb952002.svg
-E:\worker\client\insight-bi\dist\static\img\function_green.d9a1e779.svg
-E:\worker\client\insight-bi\dist\static\img\function_normal.41450403.svg
-E:\worker\client\insight-bi\dist\static\img\function_orange.5f8243d9.svg
-E:\worker\client\insight-bi\dist\static\img\function_purple.64ab62e5.svg
-E:\worker\client\insight-bi\dist\static\img\iconfont.6ae01e66.svg
-E:\worker\client\insight-bi\dist\static\img\join_error.f84876f5.svg
-E:\worker\client\insight-bi\dist\static\img\join_type.4b21c696.png
-E:\worker\client\insight-bi\dist\static\img\login_bg.8964d770.png
-E:\worker\client\insight-bi\dist\static\img\logo.a91fa25b.png
-E:\worker\client\insight-bi\dist\static\img\media.6845ed7b.png
-E:\worker\client\insight-bi\dist\static\img\number_blue.452c250d.svg
-E:\worker\client\insight-bi\dist\static\img\number_green.3ae3ddb5.svg
-E:\worker\client\insight-bi\dist\static\img\number_normal.12cfac43.svg
-E:\worker\client\insight-bi\dist\static\img\number_orange.194d0e70.svg
-E:\worker\client\insight-bi\dist\static\img\number_purple.d3ab6d64.svg
-E:\worker\client\insight-bi\dist\static\img\table.714506c4.svg
-E:\worker\client\insight-bi\dist\static\img\table_blue.7fbb3727.svg
-E:\worker\client\insight-bi\dist\static\img\table_green.340ad40f.svg
-E:\worker\client\insight-bi\dist\static\img\table_normal.108a347e.svg
-E:\worker\client\insight-bi\dist\static\img\table_orange.a7222062.svg
-E:\worker\client\insight-bi\dist\static\img\table_purple.bc40dd6e.svg
-E:\worker\client\insight-bi\dist\static\js\app.baec845f.js
-E:\worker\client\insight-bi\dist\static\js\chunk-0de0ac47.64835b5c.js
-E:\worker\client\insight-bi\dist\static\js\chunk-0ebf5382.0d676f36.js
-E:\worker\client\insight-bi\dist\static\js\chunk-15ec8cfe.ad55ee25.js
-E:\worker\client\insight-bi\dist\static\js\chunk-16759055.62223cb0.js
-E:\worker\client\insight-bi\dist\static\js\chunk-170f72c3.73244741.js
-E:\worker\client\insight-bi\dist\static\js\chunk-23ef6185.7ba28d17.js
-E:\worker\client\insight-bi\dist\static\js\chunk-2d0ddb63.6e7ecec2.js
-E:\worker\client\insight-bi\dist\static\js\chunk-2d2105d3.51207f2c.js
-E:\worker\client\insight-bi\dist\static\js\chunk-2d21085a.09f20bab.js
-E:\worker\client\insight-bi\dist\static\js\chunk-2d230fe7.e7e4a023.js
-E:\worker\client\insight-bi\dist\static\js\chunk-333243be.d5bda99d.js
-E:\worker\client\insight-bi\dist\static\js\chunk-39a885e2.293c0820.js
-E:\worker\client\insight-bi\dist\static\js\chunk-3c36363d.b5645d55.js
-E:\worker\client\insight-bi\dist\static\js\chunk-4e27cfbc.9f89706a.js
-E:\worker\client\insight-bi\dist\static\js\chunk-51b75946.93b63ec5.js
-E:\worker\client\insight-bi\dist\static\js\chunk-54a80722.c7ed6f08.js
-E:\worker\client\insight-bi\dist\static\js\chunk-5818e6d4.f2d45e3f.js
-E:\worker\client\insight-bi\dist\static\js\chunk-5d0f2eb0.be6d358e.js
-E:\worker\client\insight-bi\dist\static\js\chunk-604cad60.5e7f3137.js
-E:\worker\client\insight-bi\dist\static\js\chunk-6114e0a1.1c6e31f9.js
-E:\worker\client\insight-bi\dist\static\js\chunk-61904fa2.bea48242.js
-E:\worker\client\insight-bi\dist\static\js\chunk-6c0be122.77f9f392.js
-E:\worker\client\insight-bi\dist\static\js\chunk-7a13deaf.b0a7cd0b.js
-E:\worker\client\insight-bi\dist\static\js\chunk-7b13a56b.fb4bf071.js
-E:\worker\client\insight-bi\dist\static\js\chunk-8211a022.f1ecd751.js
-E:\worker\client\insight-bi\dist\static\js\chunk-933585f0.41c46653.js
-E:\worker\client\insight-bi\dist\static\js\chunk-9dd2722c.68369eb4.js
-E:\worker\client\insight-bi\dist\static\js\chunk-a209ef92.2196a677.js
-E:\worker\client\insight-bi\dist\static\js\chunk-b0c9950e.ee871961.js
-E:\worker\client\insight-bi\dist\static\js\chunk-ba5f4886.ce26848f.js
-E:\worker\client\insight-bi\dist\static\js\chunk-cec8e002.08563bbc.js
-E:\worker\client\insight-bi\dist\static\js\chunk-d49bed12.9ecee903.js
-E:\worker\client\insight-bi\dist\static\js\chunk-e70a33bc.9a81b705.js
-E:\worker\client\insight-bi\dist\static\js\chunk-e756a6b2.228873c0.js
-E:\worker\client\insight-bi\dist\static\js\chunk-f23c7aaa.a4ea20e5.js
-E:\worker\client\insight-bi\dist\static\js\chunk-fbd8cfdc.15e3c961.js
-������ 168 ���ļ�
-子进程退出，退出码 0子进程关闭，退出码 0
+子进程关闭，退出码 null

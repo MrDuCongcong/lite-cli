@@ -1,62 +1,43 @@
 <template>
     <div class="project">
         <div class="project-add">
-            <a-button class="opea-left"
-                      type="primary"
-                      :disabled="!hasSelected"
-                      @click="runProjects">
+            <a-button class="opea-left" type="primary" :disabled="!hasSelected" @click="runProjects">
                 运行
             </a-button>
-            <a-button class="opea-right"
-                      type="primary"
-                      @click="showProjectModal">
+            <a-button class="opea-right" type="primary" @click="showProjectModal">
                 新增项目
             </a-button>
-            <a-button class="opea-right"
-                      @click="showConDrawer">
+            <a-button class="opea-right" @click="showConDrawer">
                 控制台
             </a-button>
         </div>
-        <a-table :row-selection="{ selectedRowKeys: selectedProjectId, onChange: onSelectChange }"
-                 :columns="columns"
-                 :data-source="projectList"
-                 :rowKey="record => record.projectId">
-            <span slot="projectName"
-                  slot-scope="text">{{ text }}</span>
-            <span slot="createDate"
-                  slot-scope="text">{{ text }}</span>
-            <span slot="description"
-                  slot-scope="text">{{ text }}</span>
-            <span slot="action"
-                  slot-scope="text, record">
-                <a-icon v-if="isRun(record)"
-                        type="loading" />
-                <a class="opea-icon"
-                   v-if="!isRun(record)"
-                   @click="runProject(record)">运行</a>
-                <a class="opea-icon"
-                   v-if="isRun(record)"
-                   @click="suspendRunProject(record)">中止</a>
+        <a-table
+            :row-selection="{ selectedRowKeys: selectedProjectId, onChange: onSelectChange }"
+            :columns="columns"
+            :data-source="projectList"
+            :rowKey="(record) => record.projectId"
+        >
+            <span slot="projectName" slot-scope="text">{{ text }}</span>
+            <span slot="createDate" slot-scope="text">{{ text }}</span>
+            <span slot="description" slot-scope="text">{{ text }}</span>
+            <span slot="action" slot-scope="text, record">
+                <a-icon v-if="isRun(record)" type="loading" />
+                <a class="opea-icon" v-if="!isRun(record)" @click="runProject(record)">运行</a>
+                <a class="opea-icon" v-if="isRun(record)" @click="suspendRunProject(record)">中止</a>
                 <!-- <a class="opea-icon" @click="buildProject(record)">打包</a> -->
                 <a-divider type="vertical" />
-                <a class="opea-icon"
-                   @click="editProject(record)">编辑</a>
+                <a class="opea-icon" @click="editProject(record)">编辑</a>
                 <a-divider type="vertical" />
-                <a class="opea-icon"
-                   @click="deleteOpea(record)">删除</a>
-                <a-divider type="vertical"
-                           v-if="record.moduleChoice" />
-                <a class="opea-icon"
-                   v-if="record.moduleChoice"
-                   @click="editModuleTree(record)">模块</a>
+                <a class="opea-icon" @click="deleteOpea(record)">删除</a>
+                <a-divider type="vertical" v-if="record.moduleChoice" />
+                <a class="opea-icon" v-if="record.moduleChoice" @click="editModuleTree(record)">模块</a>
 
                 <!-- <a-icon class="opea-icon" type="setting" @click="buildProject(record)"/> -->
             </span>
         </a-table>
 
         <build ref="buildRef"></build>
-        <project-modal ref="pjtRef"
-                       @handleOk="addProject"></project-modal>
+        <project-modal ref="pjtRef" @handleOk="addProject"></project-modal>
         <console-panel ref="conRef"></console-panel>
     </div>
 </template>
@@ -148,8 +129,12 @@ export default {
             this.$api
                 .post('/addProject', projectData)
                 .then((res) => {
-                    this.projectList = res.data;
-                    this.$refs.pjtRef.closeDialog();
+                    if (res.state === 200) {
+                        this.projectList = res.data;
+                        this.$refs.pjtRef.closeDialog();
+                    } else {
+                        this.$refs.message(res.message);
+                    }
                 })
                 .catch((err) => {
                     this.$message.error(err);
@@ -226,8 +211,12 @@ export default {
             this.$api
                 .get('/projectList')
                 .then((res) => {
-                    this.projectList = res.data;
-                    this.$store.dispatch('getRunList');
+                    if (res.state === 200) {
+                        this.projectList = res.data;
+                        this.$store.dispatch('getRunList');
+                    } else {
+                        this.$message.error(res.message);
+                    }
                 })
                 .catch((err) => {
                     this.$message.error(err);
@@ -241,8 +230,12 @@ export default {
                     },
                 })
                 .then((res) => {
-                    this.projectList = res.data;
-                    this.$store.dispatch('getRunList');
+                    if (res.state === 200) {
+                        this.projectList = res.data;
+                        this.$store.dispatch('getRunList');
+                    } else {
+                        this.$message.error(res.message);
+                    }
                 })
                 .catch((err) => {
                     this.$message.error(err);

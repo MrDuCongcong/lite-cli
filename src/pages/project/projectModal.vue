@@ -1,41 +1,21 @@
 <template>
     <div class="edit-project">
-        <a-modal title="新增项目"
-                 cancelText="取消"
-                 okText="确定"
-                 :visible="dialogVisible"
-                 @ok="handleOk"
-                 @cancel="handleCancel">
-            <a-form-model ref="formRef"
-                          :model="form"
-                          :label-col="labelCol"
-                          :wrapper-col="wrapperCol"
-                          :rules="rules">
-                <a-form-model-item label="名称"
-                                   :colon="false"
-                                   prop="projectName">
+        <a-modal title="新增项目" cancelText="取消" okText="确定" :visible="dialogVisible" @ok="handleOk" @cancel="handleCancel">
+            <a-form-model ref="formRef" :model="form" :label-col="labelCol" :wrapper-col="wrapperCol" :rules="rules">
+                <a-form-model-item label="名称" :colon="false" prop="projectName">
                     <a-input v-model="form.projectName" />
                 </a-form-model-item>
-                <a-form-model-item label="描述"
-                                   :colon="false"
-                                   prop="description">
+                <a-form-model-item label="描述" :colon="false" prop="description">
                     <a-input v-model="form.description" />
                 </a-form-model-item>
-                <a-form-model-item label="路径"
-                                   :colon="false"
-                                   prop="path">
-                    <a-input v-model="form.path"
-                             @focus="handlePathInput" />
+                <a-form-model-item label="路径" :colon="false" prop="path">
+                    <a-input v-model="form.path" @focus="handlePathInput" />
                 </a-form-model-item>
-                <a-form-model-item label="按模块打包"
-                                   :colon="false"
-                                   prop="moduleChoice">
+                <a-form-model-item label="按模块打包" :colon="false" prop="moduleChoice">
                     <a-checkbox v-model="form.moduleChoice"> </a-checkbox>
                 </a-form-model-item>
-                <a-form-model-item label="命令"
-                                   :colon="false"
-                                   prop="cmdSet">
-                    <a-textarea v-model="form.cmdSet" />
+                <a-form-model-item label="命令" :colon="false" prop="cmdSet">
+                    <a-textarea :rows="8" v-model="form.cmdSet" />
                 </a-form-model-item>
             </a-form-model>
         </a-modal>

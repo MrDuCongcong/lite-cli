@@ -1,18 +1,15 @@
 <template>
     <div class="build">
-        <a-modal title="模块选择"
-                 cancelText="取消"
-                 okText="确定"
-                 :visible="buildDialogVisible"
-                 @ok="handleOk"
-                 @cancel="handleCancel">
+        <a-modal title="模块选择" cancelText="取消" okText="确定" :visible="buildDialogVisible" @ok="handleOk" @cancel="handleCancel">
             <div class="build-content">
-                <a-tree v-model="selectedModule"
-                        checkable
-                        :replace-fields="replaceFields"
-                        :default-expand-all="true"
-                        :tree-data="projectList"
-                        @check="handleCheck" />
+                <a-tree
+                    v-model="selectedModule"
+                    checkable
+                    :replace-fields="replaceFields"
+                    :default-expand-all="true"
+                    :tree-data="projectList"
+                    @check="handleCheck"
+                />
             </div>
         </a-modal>
     </div>
@@ -46,7 +43,6 @@ export default {
         },
         showDialog(projectId) {
             this.projectId = projectId;
-            this.buildDialogVisible = true;
             this.getModuleList(projectId);
         },
         goBack() {
@@ -60,8 +56,13 @@ export default {
                     },
                 })
                 .then((res) => {
-                    this.projectList = res.data;
-                    this.getModuleByProjectId();
+                    if (res.state === 200) {
+                        this.projectList = res.data;
+                        this.buildDialogVisible = true;
+                        this.getModuleByProjectId();
+                    } else {
+                        this.$message.error(res.message);
+                    }
                 })
                 .catch((err) => {
                     this.$message.error(err);
@@ -75,7 +76,11 @@ export default {
                     },
                 })
                 .then((res) => {
-                    this.selectedModule = res.data;
+                    if (res.state === 200) {
+                        this.selectedModule = res.data;
+                    } else {
+                        this.$message.error(res.message);
+                    }
                 })
                 .catch((err) => {
                     this.$message.error(err);
@@ -92,6 +97,8 @@ export default {
                     if (res.state === 200) {
                         this.buildDialogVisible = false;
                         this.$message.success('项目模块修改成功');
+                    } else {
+                        this.$message.error(res.message);
                     }
                 })
                 .catch((err) => {

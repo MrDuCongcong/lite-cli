@@ -4,7 +4,7 @@
     "description": "分模块打包工具",
     "main": "index.js",
     "scripts": {
-        "start": "node bin/lite-cli.js"
+        "dev": "node bin/lite-cli.js"
     },
     "bin": {
         "lite-cli": "bin/lite-cli.js"
@@ -40,5 +40,6 @@
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0"
-    }
+    },
+    "modules": []
 }

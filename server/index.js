@@ -76,15 +76,24 @@ function createServer() {
     });
 
     app.get('/getModuleList', (req, res) => {
+        let responseData = {};
         const projectId = req.param('projectId');
         const project = operateConfig.getProjectById(projectId, projectConfigPath);
 
-        const data = operateConfig.getModuleList(project, moduleConfigFile);
-        let responseData = {
-            state: 200,
-            data: data,
-            message: '',
-        };
+        try {
+            const data = operateConfig.getModuleList(project, moduleConfigFile);
+            responseData = {
+                state: 200,
+                data: data,
+                message: '',
+            };
+        } catch (err) {
+            responseData = {
+                state: 500,
+                data: '',
+                message: '模块配置文件读取失败',
+            };
+        }
         res.send(responseData);
     });
 
@@ -131,7 +140,7 @@ function createServer() {
             responseData = {
                 state: 500,
                 data: '',
-                message: e.message,
+                message: '服务端错误',
             };
         }
 
