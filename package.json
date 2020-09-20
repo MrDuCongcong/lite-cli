@@ -4,7 +4,9 @@
     "description": "分模块打包工具",
     "main": "index.js",
     "scripts": {
-        "dev": "node bin/lite-cli.js"
+        "dev": "node build/server.js",
+        "server": "node bin/lite-cli.js",
+        "build": "webpack --config build/webpack.config.js"
     },
     "bin": {
         "lite-cli": "bin/lite-cli.js"
@@ -22,6 +24,7 @@
         "css-loader": "^3.6.0",
         "execa": "^4.0.3",
         "moment": "^2.27.0",
+        "open-browsers": "^1.2.2",
         "sass": "^1.26.10",
         "sass-loader": "^9.0.2",
         "uuid": "^8.3.0",

@@ -38,6 +38,8 @@ function createServer() {
     console.log('启动路径名称 ', projectConfigPath);
 
     const app = express();
+
+    app.use(express.static(path.resolve(__dirname, '../dist')))
     app.use(bodyParser.json());
 
     app.get('/projectList', (req, res) => {

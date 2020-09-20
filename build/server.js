@@ -1,13 +1,7 @@
 #!/usr/bin/env node
-
-const { program } = require("commander");
 const { createServer } = require('../server');
+const { runDevServer } = require('../scripts/devServer');
 const path = require('path');
-const openBrowsers = require('open-browsers');
-
-program
-    .option('-c, --config', '模块树的配置文件', 'build.config.json');
-
 
 const basePath = "build";  //当前工程下所有配置文件的目录路径 
 
@@ -20,9 +14,7 @@ const serverConfig = {
 const server = createServer();
 server.listen(serverConfig.port, () => {
     console.log(`服务器已启动, 监听端口：${serverConfig.port}`);
-    if (!openBrowsers('http://localhost:8081')) {
-        console.log('浏览器打开失败！请访问：http://localhost:8081');
-    }
+    runDevServer();
 });   
 
 
