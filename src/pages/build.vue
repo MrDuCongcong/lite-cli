@@ -1,6 +1,13 @@
 <template>
     <div class="build">
-        <a-modal title="模块选择" cancelText="取消" okText="确定" :visible="buildDialogVisible" @ok="handleOk" @cancel="handleCancel">
+        <a-modal
+            title="模块选择"
+            cancelText="取消"
+            okText="确定"
+            :visible="buildDialogVisible"
+            @ok="handleOk"
+            @cancel="handleCancel"
+        >
             <div class="build-content">
                 <a-tree
                     v-model="selectedModule"
@@ -124,7 +131,7 @@ export default {
 
 .build-content {
     height: 400px;
-    overflow: scroll;
+    overflow-y: scroll;
     border: 1px solid #e8e8e8;
     border-radius: 4px;
 }

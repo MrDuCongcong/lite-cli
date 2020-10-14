@@ -1,11 +1,11 @@
 [
     {
-        "projectName": "insight-bi",
-        "projectId": "4cb9e30f-e18e-4d5f-a620-9a97326aed0c",
+        "projectName": "dfad",
+        "projectId": "1aefb0a1-3368-41ff-85a8-a41e672f1a91",
         "description": "",
-        "path": "E:\\worker\\client\\insight-bi",
-        "cmdSet": "@echo off\ncall npm run build:prod\necho Exit Code = %ERRORLEVEL%\nif \"%ERRORLEVEL%\" == \"1\" exit /B 1\nxcopy /E  E:\\worker\\client\\insight-bi\\dist  F:/",
+        "path": "E:\\front\\lite-cli\\data\\",
+        "cmdSet": "dfasdf",
         "moduleChoice": true,
-        "createDate": "2020-09-16 15:09:50"
+        "createDate": "2020-10-14 17:10:22"
     }
 ]
