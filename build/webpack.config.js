@@ -1,3 +1,9 @@
+/*
+ * @Author: DuCongcong
+ * @Description:
+ * @Date: 2020-10-19 16:12:19
+ * @LastEditTime: 2020-10-19 18:14:02
+ */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');

@@ -1,11 +1,11 @@
 [
     {
-        "projectName": "dfad",
-        "projectId": "1aefb0a1-3368-41ff-85a8-a41e672f1a91",
-        "description": "",
-        "path": "E:\\front\\lite-cli\\data\\",
-        "cmdSet": "dfasdf",
+        "projectName": "insight-bi(120)",
+        "projectId": "d940f2e7-48ce-4199-a51a-c339bda90b94",
+        "description": "insight-bi(120)",
+        "path": "E:\\worker\\client\\insight-bi",
+        "cmdSet": "npm run build:stage",
         "moduleChoice": true,
-        "createDate": "2020-10-14 17:10:22"
+        "createDate": "2020-10-19 16:10:75"
     }
 ]

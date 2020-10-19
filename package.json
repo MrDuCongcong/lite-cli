@@ -1,6 +1,6 @@
 {
-    "name": "lite-cli",
-    "version": "1.0.0",
+    "name": "@mrdu/lite-cli",
+    "version": "1.0.6",
     "description": "分模块打包工具",
     "main": "index.js",
     "scripts": {
@@ -11,7 +11,7 @@
     "bin": {
         "lite-cli": "bin/lite-cli.js"
     },
-    "author": "",
+    "author": "DuCongcong",
     "license": "ISC",
     "dependencies": {
         "ant-design-vue": "^1.6.4",
@@ -23,6 +23,7 @@
         "cross-spawn": "^7.0.3",
         "css-loader": "^3.6.0",
         "execa": "^4.0.3",
+        "express": "^4.17.1",
         "moment": "^2.27.0",
         "open-browsers": "^1.2.2",
         "sass": "^1.26.10",
@@ -32,7 +33,8 @@
         "vue-router": "^3.3.4",
         "vue-template-compiler": "^2.6.11",
         "vuex": "^3.5.1",
-        "win-select-folder": "^1.0.1"
+        "win-select-folder": "^1.0.1",
+        "xterm": "^4.9.0"
     },
     "devDependencies": {
         "@babel/core": "^7.11.6",
@@ -44,5 +46,8 @@
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0"
     },
-    "modules": []
+    "modules": [],
+    "publishConfig": {
+        "access": "public"
+    }
 }

@@ -1,2 +1,0 @@
-cd /d dfasdf
-dfasdf
