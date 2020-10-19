@@ -1,5 +1,0 @@
-
-C:\Users\Administrator>cd /d dfasdf 
-
-C:\Users\Administrator>dfasdf
-子进程退出，退出码 1子进程关闭，退出码 1
