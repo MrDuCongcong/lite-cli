@@ -1,3 +1,9 @@
+/*
+ * @Author: DuCongcong
+ * @Description:
+ * @Date: 2020-10-19 16:12:28
+ * @LastEditTime: 2020-10-21 17:53:06
+ */
 import Vue from 'vue';
 import Vuex from 'vuex';
 import api from '@/api/request';
@@ -21,6 +27,9 @@ const store = new Vuex.Store({
         setRunList(state, runData) {
             state.runList = runData;
         },
+        addRun(state, project) {
+            state.runList.push(project);
+        },
         setRunLogList(state, runData) {
             runData.forEach((item) => {
                 const findRunIndex = state.runLogList.findIndex((logItem) => {
@@ -37,17 +46,17 @@ const store = new Vuex.Store({
     },
     actions: {
         getRunList({ commit }) {
-            return new Promise((resolve, reject) => {
-                api.get('/runProjectList')
-                    .then((res) => {
-                        commit('setRunList', res.data);
-                        commit('setRunLogList', res.data);
-                        resolve(res.data);
-                    })
-                    .catch((err) => {
-                        reject(err);
-                    });
-            });
+            // return new Promise((resolve, reject) => {
+            //     api.get('/runProjectList')
+            //         .then((res) => {
+            //             commit('setRunList', res.data);
+            //             commit('setRunLogList', res.data);
+            //             resolve(res.data);
+            //         })
+            //         .catch((err) => {
+            //             reject(err);
+            //         });
+            // });
         },
         setRunLog({ state }, projectInfo) {
             const { projectId, runLog } = projectInfo;

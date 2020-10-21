@@ -43,9 +43,9 @@
 </template>
 
 <script>
-import build from '@/pages/build.vue';
-import projectModal from './projectModal.vue';
-import consolePanel from '../consolePanel.vue';
+import build from '@/pages/build';
+import projectModal from './projectModal';
+import consolePanel from '../consolePanel';
 
 export default {
     name: 'project',
@@ -127,7 +127,7 @@ export default {
         },
         addProject(projectData) {
             this.$api
-                .post('/addProject', projectData)
+                .post('/project/addProject', projectData)
                 .then((res) => {
                     if (res.state === 200) {
                         this.projectList = res.data;
@@ -160,27 +160,27 @@ export default {
         },
         runProject(project) {
             this.selectedProjectId = [];
-
-            this.$api
-                .get('/runProjectShell', {
-                    params: {
-                        projectIds: [project.projectId],
-                    },
-                })
-                .then((res) => {
-                    if (res.state === 200 || res.state === 300) {
-                        this.$refs.conRef.showDrawer(project.projectId);
-                    } else {
-                        this.$message.error(res.message);
-                    }
-                })
-                .catch((err) => {
-                    this.$message.error(err);
-                });
+            this.$refs.conRef.showDrawer(project);
+            // this.$api
+            //     .get('/project/runProjectShell', {
+            //         params: {
+            //             projectIds: [project.projectId],
+            //         },
+            //     })
+            //     .then((res) => {
+            //         if (res.state === 200 || res.state === 300) {
+            //             this.$refs.conRef.showDrawer(project.projectId);
+            //         } else {
+            //             this.$message.error(res.message);
+            //         }
+            //     })
+            //     .catch((err) => {
+            //         this.$message.error(err);
+            //     });
         },
         runProjects() {
             this.$api
-                .get('/runProjectShell', {
+                .get('/project/runProjectShell', {
                     params: {
                         projectIds: this.selectedProjectId,
                     },
@@ -196,7 +196,7 @@ export default {
         },
         buildProject(project) {
             this.$api
-                .get('/buildProject', {
+                .get('/project/buildProject', {
                     params: {
                         projectId: project.projectId,
                     },
@@ -209,7 +209,7 @@ export default {
 
         getProjectList() {
             this.$api
-                .get('/projectList')
+                .get('/project/projectList')
                 .then((res) => {
                     if (res.state === 200) {
                         this.projectList = res.data;
@@ -224,7 +224,7 @@ export default {
         },
         deleteProject(project) {
             this.$api
-                .get('/deleteProject', {
+                .get('/project/deleteProject', {
                     params: {
                         projectId: project.projectId,
                     },

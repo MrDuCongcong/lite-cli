@@ -1,8 +1,9 @@
 <template>
-    <div class="tabs">
+    <div>
         <a-drawer
+            class="tabs"
             :destroyOnClose="true"
-            height="300"
+            height="800"
             :closable="true"
             :mask="false"
             :maskClosable="false"
@@ -11,10 +12,16 @@
             @close="onClose"
         >
             <a-tabs>
-                <a-tab-pane v-for="(runPrj, index) in runLogList" :key="index" :tab="runPrj.projectName" @change="handleTabChange">
-                    <div class="tabs-content">
+                <a-tab-pane
+                    v-for="(runPrj, index) in runList"
+                    :key="index"
+                    :tab="runPrj.projectName"
+                    @change="handleTabChange"
+                >
+                    <!-- <div class="tabs-content">
                         <pre>{{ runPrj.runLog }}</pre>
-                    </div>
+                    </div> -->
+                    <terminal :projectId="runPrj.projectId"></terminal>
                 </a-tab-pane>
             </a-tabs>
         </a-drawer>
@@ -22,7 +29,12 @@
 </template>
 
 <script>
+import terminal from './terminal';
+
 export default {
+    components: {
+        terminal,
+    },
     data() {
         return {
             placement: 'bottom',
@@ -39,20 +51,27 @@ export default {
         },
     },
     methods: {
-        showDrawer(projectId) {
-            this.$store
-                .dispatch('getRunList')
-                .then((data) => {
-                    if (data.length > 0) {
-                        this.visible = true;
-                        this.getRunLogByProjectiD(projectId);
-                    } else {
-                        this.$message.error('当前无项目运行');
-                    }
-                })
-                .catch((err) => {
-                    this.$message.error(err);
-                });
+        showDrawer(project) {
+            const findIndex = this.runList.findIndex((i) => i.projectId === project.projectId);
+            if (findIndex < 0) {
+                this.$store.commit('addRun', project);
+            }
+            if (!this.visible) {
+                this.visible = true;
+            }
+            // this.$store
+            //     .dispatch('getRunList')
+            //     .then((data) => {
+            //         if (data.length > 0) {
+            //             this.visible = true;
+            //             this.getRunLogByProjectiD(projectId);
+            //         } else {
+            //             this.$message.error('当前无项目运行');
+            //         }
+            //     })
+            //     .catch((err) => {
+            //         this.$message.error(err);
+            //     });
         },
         /**
          * 根据项目Id获取运行日志
@@ -124,24 +143,29 @@ export default {
 </style>
 
 <style lang="scss">
-.tabs-content {
-    width: 100%;
-    height: 100%;
-    overflow: scroll;
-}
-.ant-tabs-bar {
-    margin: 0px;
-}
+.tabs {
+    .ant-drawer-body {
+        padding: 0px 24px !important;
+        height: 100%;
+    }
+    .ant-tabs {
+        height: 100%;
+    }
+    .tabs-content {
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+    }
+    .ant-tabs-bar {
+        margin: 0px;
+    }
 
-.ant-drawer-body {
-    padding: 0px 24px 24px !important;
-    height: 100%;
-}
+    .ant-tabs-content {
+        height: 100%;
+    }
 
-.ant-tabs-content {
-    height: 100%;
-}
-.ant-tabs {
-    height: 100%;
+    .ant-tabs-nav .ant-tabs-tab {
+        padding: 8px 12px;
+    }
 }
 </style>

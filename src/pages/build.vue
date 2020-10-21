@@ -57,7 +57,7 @@ export default {
         },
         getModuleList(projectId) {
             this.$api
-                .get('/getModuleList', {
+                .get('/module/getModuleList', {
                     params: {
                         projectId: projectId,
                     },
@@ -77,7 +77,7 @@ export default {
         },
         getModuleByProjectId() {
             this.$api
-                .get('/getModuleByProjectId', {
+                .get('/module/getModuleByProjectId', {
                     params: {
                         projectId: this.projectId,
                     },
@@ -96,7 +96,7 @@ export default {
         handleCheck() {},
         handleMoudleChange() {
             this.$api
-                .post('/modulesForProject', {
+                .post('/module/modulesForProject', {
                     modules: this.selectedModule,
                     projectId: this.projectId,
                 })

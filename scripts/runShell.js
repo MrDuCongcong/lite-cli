@@ -26,7 +26,9 @@ exports.runShell = function(project, logDir, cmdDir, moduleBaseDir) {
     const modulePath = `${moduleBaseDir}/${project.projectId}.json`;
 
     // 当前工程下的package.json文件路径
-    const packagePath = project.path.trim() ? path.resolve(project.path, 'package.json') : path.resolve(workPath, 'package.json');
+    const packagePath = project.path.trim()
+        ? path.resolve(project.path, 'package.json')
+        : path.resolve(workPath, 'package.json');
 
     // 命令执行前先清理上一次的日志
     if (fs.existsSync(logPath)) {
@@ -88,7 +90,7 @@ exports.runShell = function(project, logDir, cmdDir, moduleBaseDir) {
         runProjectList.splice(findProjectIndex, 1);
     });
 
-    process.stdout.on('message', (data) => {
+    process.stdout.on('data', (data) => {
         fs.appendFileSync(logPath, data);
     });
 

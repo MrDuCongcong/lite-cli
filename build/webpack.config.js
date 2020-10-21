@@ -2,7 +2,7 @@
  * @Author: DuCongcong
  * @Description:
  * @Date: 2020-10-19 16:12:19
- * @LastEditTime: 2020-10-19 18:14:02
+ * @LastEditTime: 2020-10-21 12:11:17
  */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -15,7 +15,7 @@ module.exports = {
         main: path.resolve(__dirname, '../main.js'),
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(__dirname, '../dist/frontEnd'),
         filename: '[name].js',
     },
     devtool: 'inline-source-map',
@@ -25,6 +25,7 @@ module.exports = {
         alias: {
             '@': path.join(__dirname, '../src'),
         },
+        extensions: ['.js', '.vue', '.css'],
     },
     module: {
         rules: [
