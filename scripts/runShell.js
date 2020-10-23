@@ -56,7 +56,7 @@ exports.runShell = function(project, logDir, cmdDir, moduleBaseDir) {
         fs.writeFileSync(packagePath, JSON.stringify(packageData, null, 4));
     } else if (project.moduleChoice) {
         // 说明
-        throw new Error('项目的不存在模块配置');
+        throw new Error('项目的不存在模块配置 ');
     }
 
     // 运行工程如果有配置路径，则先将'导航到指定的路径下'的命令拼接到命令集中

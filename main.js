@@ -1,10 +1,29 @@
+/*
+ * @Author: DuCongcong
+ * @Description:
+ * @Date: 2020-10-19 16:11:59
+ * @LastEditTime: 2020-10-22 18:56:12
+ */
 import Vue from 'vue';
 import App from './src/app.vue';
 import router from './src/router';
 import store from './src/store';
 import api from '@/api/request';
 
-import { Icon, Button, Tree, Table, message, Modal, FormModel, Divider, Input, Checkbox, Tabs, Drawer } from 'ant-design-vue';
+import {
+    Icon,
+    Button,
+    Tree,
+    Table,
+    message,
+    Modal,
+    FormModel,
+    Divider,
+    Input,
+    Checkbox,
+    Tabs,
+    Drawer,
+} from 'ant-design-vue';
 
 import 'ant-design-vue/dist/antd.css';
 import '@/styles/style.css';
@@ -46,3 +65,5 @@ Vue.config.errorHandler = (err, vm, info) => {
 Vue.config.warnHandler = (msg, vm, trace) => {
     console.warn(msg, trace);
 };
+
+Vue.prototype.$eventHub = new Vue();

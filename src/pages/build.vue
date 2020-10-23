@@ -96,7 +96,7 @@ export default {
         handleCheck() {},
         handleMoudleChange() {
             this.$api
-                .post('/module/modulesForProject', {
+                .post('/module/setModulesForProject', {
                     modules: this.selectedModule,
                     projectId: this.projectId,
                 })

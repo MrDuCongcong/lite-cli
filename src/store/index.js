@@ -2,7 +2,7 @@
  * @Author: DuCongcong
  * @Description:
  * @Date: 2020-10-19 16:12:28
- * @LastEditTime: 2020-10-21 17:53:06
+ * @LastEditTime: 2020-10-23 18:45:54
  */
 import Vue from 'vue';
 import Vuex from 'vuex';
@@ -13,51 +13,57 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         runList: [], // 当前运行中的项目， runList是和服务端同步的
-        runLogList: [], // 当前控制台显示日志的项目列表
     },
     getters: {
         runList: (state) => {
             return state.runList;
         },
-        runLogList: (state) => {
-            return state.runLogList;
-        },
     },
     mutations: {
-        setRunList(state, runData) {
-            state.runList = runData;
+        runProject(state, project) {
+            const findPjtIndex = state.runList.findIndex((i) => i.projectId === project.projectId);
+
+            if (findPjtIndex < 0) {
+                const tempProject = JSON.parse(JSON.stringify(project));
+                tempProject.state = 1;
+                state.runList.push(tempProject);
+            } else {
+                const findPjt = state.runList[findPjtIndex];
+                findPjt.state = 1;
+                findPjt.rst = '';
+
+                /**
+                 * 因为计算属性无法监听到runList数组中对象属性的变化，执行通过splice来改变数组使得计算属性变化
+                 *  */
+                state.runList.splice(findPjtIndex, 1, findPjt);
+            }
         },
-        addRun(state, project) {
-            state.runList.push(project);
-        },
-        setRunLogList(state, runData) {
-            runData.forEach((item) => {
-                const findRunIndex = state.runLogList.findIndex((logItem) => {
-                    return logItem.projectId === item.projectId;
-                });
-                if (findRunIndex < 0) {
-                    state.runLogList.push(item);
-                }
+        suspendProject(state, runInfo) {
+            const findPjtIndex = state.runList.findIndex((i) => {
+                return i.projectId === runInfo.projectId;
             });
+
+            const findPjt = state.runList[findPjtIndex];
+            findPjt.state = 0;
+
+            if ((runInfo.methed = 'run')) {
+                findPjt.rst = runInfo.rst;
+            } else {
+                findPjt.rst = '';
+            }
+
+            /**
+             * 因为计算属性无法监听到runList数组中对象属性的变化，执行通过splice来改变数组使得计算属性变化
+             *  */
+            state.runList.splice(findPjtIndex, 1, findPjt);
         },
-        clearRunLogList(state) {
-            state.runLogList = [];
+        clearRunList(state) {
+            state.runList = state.runList.filter((i) => {
+                return i.state !== 0;
+            });
         },
     },
     actions: {
-        getRunList({ commit }) {
-            // return new Promise((resolve, reject) => {
-            //     api.get('/runProjectList')
-            //         .then((res) => {
-            //             commit('setRunList', res.data);
-            //             commit('setRunLogList', res.data);
-            //             resolve(res.data);
-            //         })
-            //         .catch((err) => {
-            //             reject(err);
-            //         });
-            // });
-        },
         setRunLog({ state }, projectInfo) {
             const { projectId, runLog } = projectInfo;
 

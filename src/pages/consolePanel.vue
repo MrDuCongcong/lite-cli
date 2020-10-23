@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="console-panel">
         <a-drawer
             class="tabs"
-            :destroyOnClose="true"
-            height="800"
+            :destroyOnClose="false"
+            :height="drawerHeight"
             :closable="true"
             :mask="false"
             :maskClosable="false"
@@ -11,17 +11,22 @@
             :placement="placement"
             @close="onClose"
         >
-            <a-tabs>
-                <a-tab-pane
-                    v-for="(runPrj, index) in runList"
-                    :key="index"
-                    :tab="runPrj.projectName"
-                    @change="handleTabChange"
-                >
+            <div @drag.prevent="handleDrag" id="gutter"></div>
+            <a-tabs :animated="false" :activeKey="activeProject" @change="handleTabChange">
+                <a-tab-pane v-for="runPrj in runList" :key="runPrj.projectId" :forceRender="true">
+                    <span slot="tab">
+                        {{ runPrj.projectName }}
+                        <a-icon
+                            type="exclamation-circle"
+                            style="color: #f5222d"
+                            v-if="runPrj.rst !== '' && runPrj.rst !== 0"
+                        />
+                        <a-icon type="check" style="color: #52c41a" v-else-if="runPrj.rst === 0" />
+                    </span>
                     <!-- <div class="tabs-content">
                         <pre>{{ runPrj.runLog }}</pre>
                     </div> -->
-                    <terminal :projectId="runPrj.projectId"></terminal>
+                    <terminal :project="runPrj"></terminal>
                 </a-tab-pane>
             </a-tabs>
         </a-drawer>
@@ -37,119 +42,84 @@ export default {
     },
     data() {
         return {
+            drawerHeight: 400,
             placement: 'bottom',
             visible: false,
-            timer: '', // 定时请求日志
+            timer: null,
+            activeProject: '',
         };
     },
     computed: {
         runList() {
             return this.$store.getters.runList;
         },
-        runLogList() {
-            return this.$store.getters.runLogList;
-        },
     },
     methods: {
         showDrawer(project) {
-            const findIndex = this.runList.findIndex((i) => i.projectId === project.projectId);
-            if (findIndex < 0) {
-                this.$store.commit('addRun', project);
-            }
             if (!this.visible) {
                 this.visible = true;
             }
-            // this.$store
-            //     .dispatch('getRunList')
-            //     .then((data) => {
-            //         if (data.length > 0) {
-            //             this.visible = true;
-            //             this.getRunLogByProjectiD(projectId);
-            //         } else {
-            //             this.$message.error('当前无项目运行');
-            //         }
-            //     })
-            //     .catch((err) => {
-            //         this.$message.error(err);
-            //     });
+            if (project) {
+                this.$store.commit('runProject', project);
+                this.activeProject = project.projectId;
+            } else {
+                this.activeProject = this.runList[0].projectId;
+            }
+            this.$nextTick(() => {
+                this.$eventHub.$emit('run', this.activeProject);
+            });
         },
-        /**
-         * 根据项目Id获取运行日志
-         * @param {projectId} 项目Id
-         */
-        getRunLogByProjectiD(projectId) {
-            this.$api
-                .get('/runLog', {
-                    params: {
-                        projectId: projectId,
-                    },
-                })
-                .then((res) => {
-                    if (res.state === 200) {
-                        this.$store.dispatch('setRunLog', {
-                            projectId,
-                            runLog: res.data.log,
-                        });
-                        if (res.data.status) {
-                            this.timer = setTimeout(() => {
-                                this.getRunLogByProjectiD(projectId);
-                            }, 800);
-                        } else {
-                            this.$store.dispatch('getRunList');
-                            clearTimeout(this.timer);
-                            this.timer = '';
-                        }
-                    }
-                })
-                .catch((err) => {});
-        },
+
         onClose() {
-            clearTimeout(this.timer);
-            this.timer = '';
-            this.$store.commit('clearRunLogList');
             this.visible = false;
+            this.$store.commit('clearRunList');
         },
-        handleTabChange(project) {
-            clearTimeout(this.timer);
-            this.timer = '';
-            this.getRunLogByProjectiD(project.projectId);
+        handleTabChange(projectId) {
+            this.activeProject = projectId;
+            this.$eventHub.$emit('resize');
         },
         suspendRunProject(project) {
-            this.$api
-                .get('/suspendProject', {
-                    params: {
-                        projectId: project.projectId,
-                    },
-                })
-                .then((res) => {
-                    if (res.state === 200) {
-                        clearTimeout(this.timer);
-                        this.timer = null;
-                        this.$store.dispatch('getRunList');
-                        this.$message.success('项目已中止运行');
-                    }
-                })
-                .catch((err) => {
-                    this.$message.error(err);
-                });
+            this.$store.commit('suspendProject', project);
+        },
+
+        handleDrag(e) {
+            e.preventDefault();
+
+            if (this.timer) {
+                return;
+            }
+
+            this.timer = setTimeout(() => {
+                if (e.clientY > 0) {
+                    this.drawerHeight = parseInt(window.innerHeight - e.clientY);
+                    this.$eventHub.$emit('resize');
+                }
+                clearTimeout(this.timer);
+                this.timer = null;
+            }, 200);
         },
     },
 };
 </script>
 
-<style lang="scss" scoped>
-.tabs {
-}
-</style>
+<style lang="scss" scoped></style>
 
 <style lang="scss">
 .tabs {
+    #gutter {
+        height: 6px;
+        cursor: ns-resize;
+        width: 100%;
+        position: absolute;
+        z-index: 1000;
+        left: 0px;
+    }
     .ant-drawer-body {
         padding: 0px 24px !important;
         height: 100%;
     }
     .ant-tabs {
-        height: 100%;
+        height: 100% !important;
     }
     .tabs-content {
         width: 100%;
@@ -167,5 +137,12 @@ export default {
     .ant-tabs-nav .ant-tabs-tab {
         padding: 8px 12px;
     }
+
+    .ant-tabs-tabpane-active {
+        height: 100%;
+    }
+    // .ant-tabs-no-animation > .ant-tabs-content > .ant-tabs-tabpane-inactive {
+    //     height: 100%;
+    // }
 }
 </style>

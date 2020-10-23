@@ -14,16 +14,16 @@
         <a-table
             :row-selection="{ selectedRowKeys: selectedProjectId, onChange: onSelectChange }"
             :columns="columns"
-            :data-source="projectList"
+            :data-source="projectData"
             :rowKey="(record) => record.projectId"
         >
             <span slot="projectName" slot-scope="text">{{ text }}</span>
             <span slot="createDate" slot-scope="text">{{ text }}</span>
             <span slot="description" slot-scope="text">{{ text }}</span>
             <span slot="action" slot-scope="text, record">
-                <a-icon v-if="isRun(record)" type="loading" />
-                <a class="opea-icon" v-if="!isRun(record)" @click="runProject(record)">运行</a>
-                <a class="opea-icon" v-if="isRun(record)" @click="suspendRunProject(record)">中止</a>
+                <a-icon v-if="record.state" type="loading" />
+                <a class="opea-icon" v-if="!record.state" @click="runProject(record)">运行</a>
+                <a class="opea-icon" v-if="record.state" @click="suspendRunProject(record)">中止</a>
                 <!-- <a class="opea-icon" @click="buildProject(record)">打包</a> -->
                 <a-divider type="vertical" />
                 <a class="opea-icon" @click="editProject(record)">编辑</a>
@@ -64,6 +64,22 @@ export default {
         hasSelected() {
             return this.selectedProjectId.length > 0;
         },
+
+        projectData() {
+            const tempData = this.projectList.map((i) => {
+                const a = JSON.parse(JSON.stringify(i));
+                const findPjt = this.runList.find((j) => {
+                    return i.projectId === j.projectId;
+                });
+                if (findPjt) {
+                    this.$set(a, 'state', findPjt.state || 0);
+                }
+
+                return a;
+            });
+
+            return tempData;
+        },
     },
     data() {
         return {
@@ -95,9 +111,10 @@ export default {
                     },
                 },
             ],
-            projectList: [],
             selectedProjectId: [],
             selectedProjects: [],
+
+            projectList: [],
         };
     },
     mounted() {
@@ -108,22 +125,14 @@ export default {
             this.$refs.pjtRef.showDialog();
         },
         /**
-         *  当前项目是否处于运行状态
-         */
-        isRun(project) {
-            const findPjtIndex = this.runList.findIndex((item) => {
-                return item.projectId === project.projectId;
-            });
-            if (findPjtIndex > -1) {
-                return true;
-            }
-            return false;
-        },
-        /**
          * 显示项目运行控制台
          */
-        showConDrawer(projectId) {
-            this.$refs.conRef.showDrawer(projectId);
+        showConDrawer() {
+            if (this.runList.length > 0) {
+                this.$refs.conRef.showDrawer();
+            } else {
+                this.$message.error('当前无项目运行');
+            }
         },
         addProject(projectData) {
             this.$api
@@ -161,39 +170,8 @@ export default {
         runProject(project) {
             this.selectedProjectId = [];
             this.$refs.conRef.showDrawer(project);
-            // this.$api
-            //     .get('/project/runProjectShell', {
-            //         params: {
-            //             projectIds: [project.projectId],
-            //         },
-            //     })
-            //     .then((res) => {
-            //         if (res.state === 200 || res.state === 300) {
-            //             this.$refs.conRef.showDrawer(project.projectId);
-            //         } else {
-            //             this.$message.error(res.message);
-            //         }
-            //     })
-            //     .catch((err) => {
-            //         this.$message.error(err);
-            //     });
         },
-        runProjects() {
-            this.$api
-                .get('/project/runProjectShell', {
-                    params: {
-                        projectIds: this.selectedProjectId,
-                    },
-                })
-                .then((res) => {
-                    if (res.state === 200 || res.state === 300) {
-                        this.$refs.conRef.showDrawer(this.selectedProjectId[0]);
-                    }
-                })
-                .catch((err) => {
-                    this.$message.error(err);
-                });
-        },
+        runProjects() {},
         buildProject(project) {
             this.$api
                 .get('/project/buildProject', {
@@ -213,7 +191,6 @@ export default {
                 .then((res) => {
                     if (res.state === 200) {
                         this.projectList = res.data;
-                        this.$store.dispatch('getRunList');
                     } else {
                         this.$message.error(res.message);
                     }
@@ -252,7 +229,7 @@ export default {
          * @param {Object} project 项目信息
          */
         suspendRunProject(project) {
-            this.$refs.conRef.suspendRunProject(project);
+            this.$eventHub.$emit('suspend', project);
         },
     },
 };

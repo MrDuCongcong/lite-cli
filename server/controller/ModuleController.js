@@ -2,9 +2,10 @@
  * @Author: DuCongcong
  * @Description: 模块
  * @Date: 2020-10-19 16:12:44
- * @LastEditTime: 2020-10-20 15:18:49
+ * @LastEditTime: 2020-10-22 11:46:37
  */
 import moduleService from '../service/ModuleService';
+import projectService from '../service/ProjectService';
 import path from '../config/path.js';
 const fs = require('fs');
 
@@ -26,7 +27,7 @@ class ModuleController {
     getModuleList(req, res, next) {
         let responseData = {};
         const projectId = req.param('projectId');
-        const project = moduleService.getProjectById(projectId, path.projectConfigPath);
+        const project = projectService.getProjectById(projectId, path.projectConfigPath);
 
         try {
             const data = moduleService.getModuleList(project, path.moduleConfigFile);
@@ -56,7 +57,7 @@ class ModuleController {
             data: '',
             message: '',
         };
-        operateConfig.setModuleForProject(path.moduleBaseDir, projectId, modules, (result) => {
+        moduleService.setModuleForProject(path.moduleBaseDir, projectId, modules, (result) => {
             if (result) {
                 responseData.state = 200;
             } else {
@@ -67,7 +68,7 @@ class ModuleController {
         });
     }
 
-    setModuleForProject(req, res, next) {
+    setModulesForProject(req, res, next) {
         const data = req.body;
 
         const modules = data.modules;
@@ -78,7 +79,7 @@ class ModuleController {
             data: '',
             message: '',
         };
-        operateConfig.setModuleForProject(path.moduleBaseDir, projectId, modules, (result) => {
+        moduleService.setModuleForProject(path.moduleBaseDir, projectId, modules, (result) => {
             if (result) {
                 responseData.state = 200;
             } else {
