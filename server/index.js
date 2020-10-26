@@ -3,7 +3,7 @@
  */
 import bodyParser from 'body-parser';
 import router from './routes/index.js';
-import init from '../scripts/init';
+import init from './scripts/init';
 import initSocket from './socket/index.js';
 
 const { createServer } = require('http');
@@ -16,7 +16,7 @@ function initServer() {
     const app = express();
 
     app.use(bodyParser.json());
-    app.use(express.static(path.resolve(__dirname, '../dist')));
+    app.use(express.static(path.resolve(__dirname, '../frontend')));
 
     router(app);
 

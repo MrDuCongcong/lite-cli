@@ -16,7 +16,6 @@ const initSocket = (server) => {
         const webSocket = ws;
 
         webSocket.on('message', (message) => {
-            console.log('请求s', message);
             const params = JSON.parse(message);
             if (params.methed === 'run') {
                 handle.runProject(params.projectId, webSocket);

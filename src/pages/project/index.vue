@@ -12,7 +12,7 @@
             </a-button>
         </div>
         <a-table
-            :row-selection="{ selectedRowKeys: selectedProjectId, onChange: onSelectChange }"
+            :row-selection="rowSelection"
             :columns="columns"
             :data-source="projectData"
             :rowKey="(record) => record.projectId"
@@ -58,9 +58,7 @@ export default {
         runList() {
             return this.$store.getters.runList;
         },
-        rowSelection() {
-            return {};
-        },
+        
         hasSelected() {
             return this.selectedProjectId.length > 0;
         },
@@ -80,9 +78,25 @@ export default {
 
             return tempData;
         },
+
+        rowSelection() {
+            let _ = this;
+            return {
+                selectedRowKeys: _.selectedProjectId, 
+                onChange:  (selectedProjectId, selectedRows) => {
+                        _.selectedProjectId = selectedProjectId;
+                        _.selectedProjects = selectedRows;
+                },
+                getCheckboxProps: record => ({
+                    props: {
+                        disabled: record.state === 1, // Column configuration not to be checked
+                    },
+                })
+            };
+        },
     },
     data() {
-        return {
+        return  {
             columns: [
                 {
                     title: '工程',
@@ -219,10 +233,7 @@ export default {
                 });
         },
 
-        onSelectChange(selectedProjectId, selectedRows) {
-            this.selectedProjectId = selectedProjectId;
-            this.selectedProjects = selectedRows;
-        },
+
 
         /**
          * 中止项目运行

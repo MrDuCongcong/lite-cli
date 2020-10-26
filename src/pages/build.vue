@@ -4,6 +4,7 @@
             title="模块选择"
             cancelText="取消"
             okText="确定"
+            class="build-modal"
             :visible="buildDialogVisible"
             @ok="handleOk"
             @cancel="handleCancel"
@@ -125,14 +126,19 @@ export default {
         text-align: right;
     }
 }
+
 .ant-modal-header {
     border: none !important;
 }
-
 .build-content {
     height: 400px;
     overflow-y: scroll;
     border: 1px solid #e8e8e8;
     border-radius: 4px;
+}
+.build-modal {
+    .ant-modal-body{
+        padding: 0 24px!important;
+    }
 }
 </style>

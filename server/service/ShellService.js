@@ -188,7 +188,7 @@ class ShellService {
 
             response = {
                 state: 0,
-                data: '运行结束',
+                data: '\r\n运行结束',
                 rst: code,
                 method: 'run',
             };
@@ -214,7 +214,7 @@ class ShellService {
         let response = {
             state: 0, //
             rst: '',
-            data: '项目已中止',
+            data: '\r\n项目已中止',
             method: 'suspend',
         };
 

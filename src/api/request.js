@@ -6,10 +6,10 @@
  */
 import axios from 'axios';
 
-const baseURL = 'http://127.0.0.1:8080/';
+// const baseURL = 'http://127.0.0.1:8080/';
 
 // 当打包页面资源的时候需要将服务修改为8081
-// const baseURL = 'http://127.0.0.1:8081/';
+const baseURL = 'http://127.0.0.1:8081/';
 
 const timeout = 1000;
 

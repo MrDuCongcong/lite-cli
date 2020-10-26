@@ -15,7 +15,7 @@ module.exports = {
         main: path.resolve(__dirname, '../main.js'),
     },
     output: {
-        path: path.resolve(__dirname, '../dist/frontEnd'),
+        path: path.resolve(__dirname, '../dist/frontend'),
         filename: '[name].js',
     },
     devtool: 'inline-source-map',

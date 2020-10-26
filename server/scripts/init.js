@@ -4,7 +4,7 @@
  * @Date: 2020-10-20 16:56:23
  * @LastEditTime: 2020-10-20 19:01:43
  */
-import path from '../server/config/path';
+import path from '../config/path';
 const fs = require('fs');
 
 const init = function() {

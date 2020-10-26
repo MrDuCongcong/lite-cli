@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { program } = require('commander');
-const { createServer } = require('../server');
+const { createServer } = require('../dist/backend/index.js');
 const path = require('path');
 const openBrowsers = require('open-browsers');
 

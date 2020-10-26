@@ -26,12 +26,15 @@ export default {
     },
     computed() {},
     mounted() {
+        let _ = this;
         this.initTerminal();
         this.$eventHub.$on('resize', () => {
-            this.fitAddon.fit();
+            this.$nextTick(() => {
+                _.fitAddon.fit();
+            })
         });
         this.$eventHub.$on('run', (projectId) => {
-            if (projectId === this.project.projectId) {
+            if (projectId === _.project.projectId) {
                 this.initWebSocket();
             }
         });
@@ -93,7 +96,6 @@ export default {
             }
         },
         handleMessage(msg) {
-            console.log(msg.data);
 
             const response = JSON.parse(msg.data);
             if (response.state === 0) {
@@ -121,6 +123,17 @@ export default {
             };
             this.ws.send(JSON.stringify(params));
         },
+    },
+    beforeDestroy() {
+        this.$eventHub.$off('resize', () => {
+            console.log('suspend事件监听器移除');
+        });
+        this.$eventHub.$off('run', () => {
+            console.log('事件监听器移除');
+        });
+        this.$eventHub.$off('suspend', () => {
+            console.log('suspend事件监听器移除');
+        });
     },
 };
 </script>

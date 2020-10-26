@@ -19,13 +19,11 @@
                         <a-icon
                             type="exclamation-circle"
                             style="color: #f5222d"
-                            v-if="runPrj.rst !== '' && runPrj.rst !== 0"
+                            v-if="runPrj.state === 0 && runPrj.rst !== '' && runPrj.rst !== 0"
                         />
-                        <a-icon type="check" style="color: #52c41a" v-else-if="runPrj.rst === 0" />
+                        <a-icon type="check" style="color: #52c41a" 
+                            v-else-if="runPrj.state === 0 && runPrj.rst !== '' && runPrj.rst === 0" />
                     </span>
-                    <!-- <div class="tabs-content">
-                        <pre>{{ runPrj.runLog }}</pre>
-                    </div> -->
                     <terminal :project="runPrj"></terminal>
                 </a-tab-pane>
             </a-tabs>
@@ -66,6 +64,7 @@ export default {
                 this.activeProject = this.runList[0].projectId;
             }
             this.$nextTick(() => {
+                this.$eventHub.$emit('resize');
                 this.$eventHub.$emit('run', this.activeProject);
             });
         },
@@ -75,8 +74,10 @@ export default {
             this.$store.commit('clearRunList');
         },
         handleTabChange(projectId) {
-            this.activeProject = projectId;
-            this.$eventHub.$emit('resize');
+            this.$nextTick(() => {
+                this.activeProject = projectId;
+                this.$eventHub.$emit('resize');
+            })
         },
         suspendRunProject(project) {
             this.$store.commit('suspendProject', project);

@@ -9,7 +9,7 @@ import path from '../config/path.js';
 import shellService from '../service/ShellService';
 
 const fs = require('fs');
-const buildServer = require('../../scripts/build');
+const buildServer = require('../scripts/build');
 // const { runShell, runList, runLog, suspendRun } = require('../../scripts/runShell');
 
 class ProjectController {

@@ -1,6 +1,6 @@
 <template>
-    <div class="edit-project">
-        <a-modal title="新增项目" cancelText="取消" okText="确定" :visible="dialogVisible" @ok="handleOk" @cancel="handleCancel">
+    <div class="dialogClass">
+        <a-modal :bodyStyle="bodyStyle" title="新增项目" cancelText="取消" okText="确定" :visible="dialogVisible" @ok="handleOk" @cancel="handleCancel">
             <a-form-model ref="formRef" :model="form" :label-col="labelCol" :wrapper-col="wrapperCol" :rules="rules">
                 <a-form-model-item label="名称" :colon="false" prop="projectName">
                     <a-input v-model="form.projectName" />
@@ -66,6 +66,10 @@ export default {
                     },
                 ],
             },
+
+            bodyStyle: {
+                padding: '0 24px',
+            },
         };
     },
     methods: {
@@ -112,6 +116,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.edit-project {
-}
+
 </style>
