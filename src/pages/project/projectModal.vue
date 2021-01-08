@@ -53,8 +53,8 @@ export default {
                     },
                     {
                         min: 2,
-                        max: 15,
-                        message: '项目名称在2 ~ 15个字之间',
+                        max: 40,
+                        message: '项目名称在2 ~ 40个字符之间',
                         trigger: 'blur',
                     },
                 ],

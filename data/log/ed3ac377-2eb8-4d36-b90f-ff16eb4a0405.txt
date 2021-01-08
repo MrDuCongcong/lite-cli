@@ -1,3 +1,0 @@
-
-E:\worker\client\builder>cd E:\worker\client\insight-bi 子进程退出，退出码 0
-子进程关闭，退出码 0

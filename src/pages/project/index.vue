@@ -1,15 +1,9 @@
 <template>
     <div class="project">
         <div class="project-add">
-            <a-button class="opea-left" type="primary" :disabled="!hasSelected" @click="runProjects">
-                运行
-            </a-button>
-            <a-button class="opea-right" type="primary" @click="showProjectModal">
-                新增项目
-            </a-button>
-            <a-button class="opea-right" @click="showConDrawer">
-                控制台
-            </a-button>
+            <a-button class="opea-left" type="primary" :disabled="!hasSelected" @click="runProjects"> 运行 </a-button>
+            <a-button class="opea-right" type="primary" @click="showProjectModal"> 新增项目 </a-button>
+            <a-button class="opea-right" @click="showConDrawer"> 控制台 </a-button>
         </div>
         <a-table
             :row-selection="rowSelection"
@@ -58,7 +52,7 @@ export default {
         runList() {
             return this.$store.getters.runList;
         },
-        
+
         hasSelected() {
             return this.selectedProjectId.length > 0;
         },
@@ -82,21 +76,21 @@ export default {
         rowSelection() {
             let _ = this;
             return {
-                selectedRowKeys: _.selectedProjectId, 
-                onChange:  (selectedProjectId, selectedRows) => {
-                        _.selectedProjectId = selectedProjectId;
-                        _.selectedProjects = selectedRows;
+                selectedRowKeys: _.selectedProjectId,
+                onChange: (selectedProjectId, selectedRows) => {
+                    _.selectedProjectId = selectedProjectId;
+                    _.selectedProjects = selectedRows;
                 },
-                getCheckboxProps: record => ({
+                getCheckboxProps: (record) => ({
                     props: {
                         disabled: record.state === 1, // Column configuration not to be checked
                     },
-                })
+                }),
             };
         },
     },
     data() {
-        return  {
+        return {
             columns: [
                 {
                     title: '工程',
@@ -223,7 +217,6 @@ export default {
                 .then((res) => {
                     if (res.state === 200) {
                         this.projectList = res.data;
-                        this.$store.dispatch('getRunList');
                     } else {
                         this.$message.error(res.message);
                     }
@@ -232,8 +225,6 @@ export default {
                     this.$message.error(err);
                 });
         },
-
-
 
         /**
          * 中止项目运行
