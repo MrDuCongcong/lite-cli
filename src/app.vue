@@ -19,3 +19,10 @@ export default {
     }
 };
 </script>
+
+
+<style>
+a, span, td{
+    user-select: none;
+}
+</style>

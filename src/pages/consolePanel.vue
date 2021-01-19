@@ -6,12 +6,13 @@
             :height="drawerHeight"
             :closable="true"
             :mask="false"
+            :keyboard="true"
             :maskClosable="false"
             :visible="visible"
             :placement="placement"
             @close="onClose"
         >
-            <div @drag.prevent="handleDrag" id="gutter"></div>
+            <div draggable @drag.prevent="handleDrag" @ondragover="handleDragOver" id="gutter"></div>
             <a-tabs :animated="false" :activeKey="activeProject" @change="handleTabChange">
                 <a-tab-pane v-for="runPrj in runList" :key="runPrj.projectId" :forceRender="true">
                     <span slot="tab">
@@ -33,6 +34,7 @@
 
 <script>
 import terminal from './terminal';
+const elementResizeDetectorMaker = require("element-resize-detector");
 
 export default {
     components: {
@@ -97,8 +99,11 @@ export default {
                 }
                 clearTimeout(this.timer);
                 this.timer = null;
-            }, 200);
+            }, 100);
         },
+        handleDragOver(e) {
+            e.preventDefault();
+        }
     },
 };
 </script>
@@ -114,6 +119,7 @@ export default {
         position: absolute;
         z-index: 1000;
         left: 0px;
+        top: -3px;
     }
     .ant-drawer-body {
         padding: 0px 24px !important;

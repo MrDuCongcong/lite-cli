@@ -1,6 +1,6 @@
 {
     "name": "@mrdu/lite-cli",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "分模块打包工具",
     "main": "index.js",
     "scripts": {
@@ -22,6 +22,7 @@
         "chalk": "^4.1.0",
         "commander": "^6.0.0",
         "cross-spawn": "^7.0.3",
+        "element-resize-detector": "^1.2.1",
         "execa": "^4.0.3",
         "express": "^4.17.1",
         "iconv-lite": "^0.6.2",

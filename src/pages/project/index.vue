@@ -8,6 +8,7 @@
         <a-table
             :row-selection="rowSelection"
             :columns="columns"
+            :scroll="scroll"
             :data-source="projectData"
             :rowKey="(record) => record.projectId"
         >
@@ -91,6 +92,9 @@ export default {
     },
     data() {
         return {
+            scroll: {
+                y: 330,
+            },
             columns: [
                 {
                     title: '工程',
