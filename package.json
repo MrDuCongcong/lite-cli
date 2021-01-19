@@ -1,6 +1,6 @@
 {
     "name": "@mrdu/lite-cli",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "分模块打包工具",
     "main": "index.js",
     "scripts": {
